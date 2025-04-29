@@ -1,0 +1,111 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'images/Logo_croped.png' %}" class="img-fluid mb-3" alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-evenly">
+        
+        <li class="nav-item">
+          <a class="nav-link {% if active == 'home' %}cactive{% endif %}" href="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if active == 'about_us' %}cactive{% endif %}" href="/about">About Us</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle {% if active == 'services' %}cactive{% endif %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Our Services
+          </a>
+          <ul class="dropdown-menu p-3 shadow" aria-labelledby="navbarDropdown">
+            <div class="row">
+              <!-- Consecrated -->
+              <div class="col-md-4">
+                <h6 class="dropdown-header text-danger fw-bold">Consecrated</h6>
+                <a class="dropdown-item" href="#">Devi Panel <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="#">Dhyanalinga Vastram <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="#">Linga Bhairavi Gudi</a>
+                <a class="dropdown-item" href="#">Linga Bhairavi Pendant</a>
+                <a class="dropdown-item" href="#">Devi Consecrated Sarees</a>
+                <a class="dropdown-item" href="#">Devi Abhaya Sutra</a>
+                <a class="dropdown-item" href="#">Adiyogi Abhaya Sutra <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="#">Dhyanalinga Yantra</a>
+                <a class="dropdown-item" href="#">Snake Ring</a>
+                <a class="dropdown-item" href="#">Vibhuti</a>
+                <a class="dropdown-item" href="#">Jeevarasam</a>
+                <a class="dropdown-item" href="#">Linga Jyothi</a>
+                <a class="dropdown-item" href="#">Dhyanalinga Pendant</a>
+                <a class="dropdown-item" href="#">Devi Pooja Offerings</a>
+                <a class="dropdown-item" href="#">Devi Shawls & Vastram</a>
+              </div>
+        
+              <!-- Temple -->
+              <div class="col-md-4">
+                <h6 class="dropdown-header text-danger fw-bold">Temple</h6>
+                <a class="dropdown-item" href="#">Linga Bhairavi Mukha</a>
+                <a class="dropdown-item" href="#">Adiyogi Miniatures <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="#">Devi Yantra Accessories</a>
+                <a class="dropdown-item" href="#">Sannidhi Accessories</a>
+                <a class="dropdown-item" href="#">Bond of Grace Sutra</a>
+                <a class="dropdown-item" href="#">Incense and Sambrani</a>
+                <a class="dropdown-item" href="#">Lamps & Diyas</a>
+                <a class="dropdown-item" href="#">Pooja Essentials</a>
+                <a class="dropdown-item" href="#">Photos</a>
+                <a class="dropdown-item" href="#">Chant Box</a>
+                <a class="dropdown-item" href="#">Temple Merchandise</a>
+                <a class="dropdown-item" href="#">Wall panels</a>
+              </div>
+        
+              <!-- Consecrated Rudraksha -->
+              <div class="col-md-4">
+                <h6 class="dropdown-header text-danger fw-bold">Consecrated Rudraksha</h6>
+                <a class="dropdown-item" href="#">Panchamukhi Malas</a>
+                <a class="dropdown-item" href="#">Rudraksha Beads</a>
+                <a class="dropdown-item" href="#">Spatik Malas</a>
+                <a class="dropdown-item" href="#">Rudraksh Guide</a>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if active == 'ebooks' %}cactive{% endif %}" href="{% url 'books:book-list' %}">Ebooks</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if active == 'blogs' %}cactive{% endif %}" href="#">Blogs</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if active == 'workshops' %}cactive{% endif %}" href="/workshops">Workshops</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link {% if active == 'contact_us' %}cactive{% endif %}" href="/contact">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('main-navbar');
+    if (window.scrollY > 80) {
+      navbar.classList.add('sticky');
+    } else {
+      navbar.classList.remove('sticky');
+    }
+  });
+</script>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+
+{% include "navbar.html" %}
+<link rel="stylesheet" href="{% static "css/live_session.css" %}">
+<!-- Hero Section -->
+ <section id="main">
+   <section class="container-fluid p-3">
+    {{ page.header_html|safe }}
+   </section>
+   
+   <header class="text-center mb-5">
+       <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4" style="max-height: 300px;">
+   </header>
+   <div class="container-fluid">
+      {{ page.content1|safe }}
+        <div class="mt-4 text-center">
+            <p>🔥 Let’s make your business vision a reality!</p>
+            <a href="YOUR-CALENDLY-BOOKING-LINK" class="btn btn-primary m-2">Book 3-Hour Business Power Hour Session 🚀</a>
+            <br>
+            <p>💡 Need something different? Let’s customize your plan!</p>
+            <a href="YOUR-CALENDLY-FREE-CALL-LINK" class="btn btn-outline-primary m-2">Book FREE 15-Minute Clarity Call</a>
+        </div>
+    </div>
+    
+   
+    <div class="mt-4">
+      {{ page.content2|safe }}
+  </div>
+  
+<!-- FAQs Section -->
+<section class="mb-5">
+  {{ page.faq_html|safe }}
+</section>
+
+   
+   </div>
+ </section>
+
+{% endblock content %}

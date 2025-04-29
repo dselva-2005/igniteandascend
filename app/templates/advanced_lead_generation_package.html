@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+{% include "navbar.html" %}
+
+<section id="main">
+  <header class="text-center mb-5">
+    <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4">
+  </header>
+
+  <section class="container py-5 text-center bg-white text-dark">
+    <div class="container-fluid">
+      {{ page.header_html|safe }}
+    </div>
+  </section>
+
+  <section class="py-3">
+    <div class="container-fluid">
+      {{ apge.htmlcontent| safe }}
+      <div class="mt-5 text-center">
+        <h4 class="fw-bold">🗓 Book a call and talk to us to get our special price and payment link:</h4>
+        <p>Book free 15 minute clarity call (Calendly)</p>
+        <a href="#" class="btn btn-maroon mb-2">🔗 Book Now</a>
+        <p class="mb-0">Or</p>
+        <p>📞 Drop a msg at <strong>7899790978</strong> for call back.</p>
+      </div>
+
+    </div>
+  </section>
+</section>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+{% include "navbar.html" %}
+<link rel="stylesheet" href="{% static "css/ultimate_trainer_launch_pack.css" %}">
+
+<section id="main">
+  <header class="text-center container-fluid">
+    <img src="{{ page.header_html.url }}" alt="Business Strategy" class="img-fluid">
+  </header>
+  <div class="container">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    {{ page.header_html|safe }}
+   </section>
+  
+  {{ page.htmlcontent|safe }}
+  
+  <!-- CTA Section -->
+  <section class="bg-dark text-white py-5">
+    <div class="container text-center">
+      <h2 class="section-title mb-3">💼 Exclusive Package Access</h2>
+      <p class="lead">👉 To get our surprise exclusive package price:</p>
+      <p>Book a call and talk to us to receive the offer and payment link.</p>
+  
+      <div class="my-4">
+        <a href="https://calendly.com/YOUR_CALENDLY_LINK" class="btn btn-warning btn-lg me-3">
+          📅 Book 15-Min Free Clarity Call
+        </a>
+        <p class="mt-3 mb-0">📲 Or drop a message at <strong>7899790978</strong> for a callback.</p>
+      </div>
+  
+      <p class="mt-4 text-success">
+        🎁 Surprise Offer Includes Bonuses Worth ₹2,00,000+ <br>
+        💰 Actual Value: ₹3,50,000+ <br>
+        👉 🔗 Book Now & Start Earning!
+      </p>
+    </div>
+  </section>
+  
+  {{ page.content2|safe }}
+  
+{% endblock content %}

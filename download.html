@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    
+    <button id="uploadBtn">Upload PDF to Selected Folder</button>
+    <script>
+      const CLIENT_ID = '251224407414-g0hk1l0ibdk5ml5ed34a96h1a2scjkec.apps.googleusercontent.com'; // OAuth 2.0 Web Client ID
+      const APP_ID = 'able-current-442512-k7'; // numeric GCP Project Number
+      const FILE_URL = 'http://127.0.0.1:8000/media/48_Laws_of_Power_The_-_Robert_Greene_Joost_Elffers.pdf';
+    
+      let accessToken = null;
+      let pickerInited = false;
+    
+      // Load Picker API
+      function loadPickerApi() {
+        gapi.load('picker', { callback: () => { pickerInited = true; } });
+      }
+    
+      // Load GAPI client for Drive API
+      function loadDriveApi() {
+        return new Promise((resolve, reject) => {
+          gapi.load('client', async () => {
+            try {
+              await gapi.client.load('https://www.googleapis.com/discovery/v1/apis/drive/v3/rest');
+              resolve();
+            } catch (err) {
+              reject(err);
+            }
+          });
+        });
+      }
+    
+      // Picker callback
+      function pickerCallback(data) {
+        if (data.action === google.picker.Action.PICKED) {
+          const folderId = data.docs[0].id;
+          uploadToDrive(folderId);
+        }
+      }
+    
+      // Show Picker to select folder
+      function showPicker() {
+        if (!pickerInited || !accessToken) {
+          alert('Picker or access token not ready.');
+          return;
+        }
+    
+        const view = new google.picker.DocsView(google.picker.ViewId.FOLDERS)
+          .setSelectFolderEnabled(true)
+          .setIncludeFolders(true)
+          .setOwnedByMe(true);
+    
+        const picker = new google.picker.PickerBuilder()
+          .setAppId(APP_ID)
+          .setOAuthToken(accessToken)
+          .addView(view)
+          .setTitle('Select a folder to upload to')
+          .setCallback(pickerCallback)
+          .build();
+    
+        picker.setVisible(true);
+      }
+    
+      // Upload file to selected folder
+      async function uploadToDrive(folderId) {
+        try {
+          const response = await fetch(FILE_URL);
+          const fileBlob = await response.blob();
+    
+          const metadata = {
+            name: 'file.pdf',
+            mimeType: 'application/pdf',
+            parents: [folderId]
+          };
+    
+          const form = new FormData();
+          form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+          form.append('file', fileBlob);
+    
+          const uploadResponse = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+            method: 'POST',
+            headers: new Headers({ 'Authorization': 'Bearer ' + accessToken }),
+            body: form
+          });
+    
+          if (uploadResponse.ok) {
+            const file = await uploadResponse.json();
+            alert('✅ File uploaded: ' + file.name);
+          } else {
+            console.error(await uploadResponse.text());
+            alert('❌ Upload failed.');
+          }
+        } catch (err) {
+          console.error(err);
+          alert('❌ Something went wrong.');
+        }
+      }
+    
+      // Init Token Client for OAuth
+      let tokenClient = null;
+      window.onload = () => {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: CLIENT_ID,
+          scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly',
+          callback: async (resp) => {
+            if (resp.error) {
+              console.error(resp);
+              alert("Failed to get access token.");
+              return;
+            }
+    
+            accessToken = resp.access_token;
+            await loadDriveApi();
+            showPicker();
+          }
+        });
+    
+        loadPickerApi();
+    
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+          tokenClient.requestAccessToken();
+        });
+      };
+    </script>
+    
+</body>
+</html>

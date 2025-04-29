@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+{% include "navbar.html" with active='ebooks' %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+
+@media (max-width:480px) {
+    .card{
+        margin: 2rem;
+    }
+}
+
+</style>
+<section id="main">
+    <header class="text-center container-fluid p-3">
+        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid">
+    </header>
+    <div class="container-fluid">
+        {{ page.header_html|safe }}
+    </div>
+    <div class="container my-5">
+        {% if object_list %}
+        <div class="row justify-content-evenly">
+            {% for book in object_list %}
+                <div class="col-md-4 col-lg-3">
+                    <div class="card shadow-sm border">
+                        <!-- Shrink the size of the image by adding a specific class or inline style -->
+                        <img class="mb-4 img-fluid" src="/media/{{ book.cover_page }}" class="rounded-top" />
+                        <div class="card-body">
+                            <h5 class="card-title text-maroon">{{ book.title }}</h5>
+                        </div>
+                        <button class="drive_download btn btn-maroon">Buy Now</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center mt-4" role="alert">
+            No books available at the moment. Stay tuned!
+        </div>
+    {% endif %}
+    
+    
+    </div>
+</section>
+
+<script>
+    const CLIENT_ID = '251224407414-g0hk1l0ibdk5ml5ed34a96h1a2scjkec.apps.googleusercontent.com';
+    const APP_ID = 'able-current-442512-k7';
+    const FILE_URL = 'http://127.0.0.1:8000/media/48_Laws_of_Power_The_-_Robert_Greene_Joost_Elffers.pdf';
+
+    let accessToken = null;
+    let pickerInited = false;
+
+    function loadPickerApi() {
+        gapi.load('picker', { callback: () => { pickerInited = true; } });
+    }
+
+    function loadDriveApi() {
+        return new Promise((resolve, reject) => {
+            gapi.load('client', async () => {
+                try {
+                    await gapi.client.load('https://www.googleapis.com/discovery/v1/apis/drive/v3/rest');
+                    resolve();
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        });
+    }
+
+    function pickerCallback(data) {
+        if (data.action === google.picker.Action.PICKED) {
+            const folderId = data.docs[0].id;
+            uploadToDrive(folderId);
+        }
+    }
+
+    function showPicker() {
+        if (!pickerInited || !accessToken) {
+            alert('Picker or access token not ready.');
+            return;
+        }
+
+        const view = new google.picker.DocsView(google.picker.ViewId.FOLDERS)
+            .setSelectFolderEnabled(true)
+            .setIncludeFolders(true)
+            .setOwnedByMe(true);
+
+        const picker = new google.picker.PickerBuilder()
+            .setAppId(APP_ID)
+            .setOAuthToken(accessToken)
+            .addView(view)
+            .setTitle('Select a folder to upload to')
+            .setCallback(pickerCallback)
+            .build();
+
+        picker.setVisible(true);
+    }
+
+    async function uploadToDrive(folderId) {
+        try {
+            const response = await fetch(FILE_URL);
+            const fileBlob = await response.blob();
+
+            const metadata = {
+                name: 'file.pdf',
+                mimeType: 'application/pdf',
+                parents: [folderId]
+            };
+
+            const form = new FormData();
+            form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+            form.append('file', fileBlob);
+
+            const uploadResponse = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+                method: 'POST',
+                headers: new Headers({ 'Authorization': 'Bearer ' + accessToken }),
+                body: form
+            });
+
+            if (uploadResponse.ok) {
+                const file = await uploadResponse.json();
+                alert('✅ File uploaded: ' + file.name);
+            } else {
+                console.error(await uploadResponse.text());
+                alert('❌ Upload failed.');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('❌ Something went wrong.');
+        }
+    }
+
+    let tokenClient = null;
+    window.onload = () => {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+            client_id: CLIENT_ID,
+            scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly',
+            callback: async (resp) => {
+                if (resp.error) {
+                    console.error(resp);
+                    alert("Failed to get access token.");
+                    return;
+                }
+
+                accessToken = resp.access_token;
+                await loadDriveApi();
+                showPicker();
+            }
+        });
+
+        loadPickerApi();
+
+        Array.from(document.getElementsByClassName('drive_download')).forEach((element)=>{
+            element.addEventListener('click', () => {
+                tokenClient.requestAccessToken();
+            });
+        })
+    };
+</script>
+{% endblock content %}

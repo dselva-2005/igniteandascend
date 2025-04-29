@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+{% include "navbar.html" %}
+<link rel="stylesheet" href="{% static "css/beginner_to_pro.css" %}">
+<section id="main">
+    <header class="text-center mb-5 container-fluid p-3">
+        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4">
+    </header>
+
+    <div class="container-fluid px-5">
+        <!-- For Beginners and Experienced Professionals Section -->
+        <section>
+            <div class="row mb-5 d-flex justify-content-evenly">
+                <!-- For Beginners -->
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-header bg-maroon text-white">
+                            {{ page.beginner_html_title|safe }}
+                        </div>
+                        <div class="card-body">
+                            {{ page.beginner_html|safe }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- For Experienced Professionals -->
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-header bg-maroon text-white">
+                            {{ page.pro_html_title|safe }}
+                        </div>
+                        <div class="card-body">
+                            {{ page.pro_html_title|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="container">
+            <h2 class="csection-title">Take Your Next Big Step With Us</h2>
+            <p><strong>Book a FREE 15-minute clarity call to discuss your needs.</strong></p>
+            <a href="https://calendly.com/your-link" class="btn btn-maroon btn-lg">Book Free 15-Minute Clarity Call</a>
+        </section>
+
+        <!-- Customization Section -->
+        <section class="container my-5">
+            <p><strong>💡 Need something different? It’s time to move forward—and we’re here to walk with you every step of the way.</strong></p>
+            <p><strong>👥 No matter where you are on your journey, we’ll meet you there—and help you move forward with confidence and purpose.</strong></p>
+            <p><strong>Let’s customize your plan!</strong></p>
+            <a href="https://calendly.com/your-link" class="btn btn-outline-maroon btn-lg">Book Your Free Clarity Call</a>
+        </section>
+
+    </div>
+</section>
+
+{% endblock content %}

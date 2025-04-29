@@ -1,0 +1,248 @@
+from django.db import models
+from tinymce.models import HTMLField  # if using TinyMCE's HTMLField
+
+
+
+class HomePage(models.Model):
+
+    header_image = models.ImageField()  # add upload_to for better file management
+    slide_image1 = models.ImageField()
+    slide_image2 = models.ImageField()
+    slide_image3 = models.ImageField()
+    slide_image4 = models.ImageField()
+    slide_image5 = models.ImageField()
+    slide_image6 = models.ImageField()
+    slide_image7 = models.ImageField()
+    slide_image8 = models.ImageField()
+    slide_image9 = models.ImageField()
+    slide_image10 = models.ImageField()
+    slide_image11 = models.ImageField()
+    slide_image12 = models.ImageField()
+    about_image = models.ImageField()
+    htmlContent = HTMLField()
+    our_service_image1 = models.ImageField()
+    our_service_image2 = models.ImageField()
+    our_service_image3 = models.ImageField()
+    our_service_image4 = models.ImageField()
+    our_service_image5 = models.ImageField()
+    our_service_image6 = models.ImageField()
+    review_image1 = models.ImageField()
+    review_image2 = models.ImageField()
+    review_image3 = models.ImageField()
+    review_image4 = models.ImageField()
+    review_image5 = models.ImageField()
+    review_image6 = models.ImageField()
+    review_image7 = models.ImageField()
+    review_image8 = models.ImageField()
+    review_image9 = models.ImageField()
+    background_image = models.ImageField()
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"HomePage updated on {self.updated}"
+
+
+class AboutPage(models.Model):
+
+    header_content = HTMLField()
+
+    image_of_person1 = models.ImageField()
+    html_content_for_person1 = HTMLField()
+
+    image_of_person2 = models.ImageField()
+    html_content_for_person2 = HTMLField()
+
+    image_of_person3 = models.ImageField()
+    html_content_for_person3 = HTMLField()
+
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"AboutPage updated on {self.updated}"
+
+class ContactPage(models.Model):
+    header_image = models.ImageField()  # add upload_to for better file management
+    htmlcontent = HTMLField()
+    contact_us_html = HTMLField()
+    form_upper_html = HTMLField()
+    form_below_html = HTMLField()
+    clarity_call_html = HTMLField()
+    clarity_call_button = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"ContactPage updated on {self.updated}"
+
+
+class BeginnerToProPage(models.Model):
+    header_image = models.ImageField()  # add upload_to for better file management
+    beginner_html_title = HTMLField()
+    beginner_html = HTMLField()
+    pro_html_title = HTMLField()
+    pro_html = HTMLField()
+    
+    clarity_call_html1 = HTMLField()
+    clarity_call_button1 = models.TextField()
+    
+    clarity_call_html2 = HTMLField()
+    clarity_call_button2 = models.TextField()
+
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"BeginnerToProPage updated on {self.updated}"
+
+
+class LiveSessionPage(models.Model):
+    header_html = HTMLField()
+    header_image = models.ImageField()  # add upload_to for better file management
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+    faq_html = HTMLField()
+
+    clarity_call_html1 = HTMLField()
+    clarity_call_button1 = models.TextField()
+    
+    clarity_call_html2 = HTMLField()
+    clarity_call_button2 = models.TextField()
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"LiveSessionPage updated on {self.updated}"
+
+
+class SkillToTrainPage(models.Model):
+    header_html = HTMLField()
+    header_image = models.ImageField()  # add upload_to for better file management
+    htmlcontent = HTMLField()
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    clarity_call_html1 = HTMLField()
+    clarity_call_button1 = models.TextField()
+    
+    clarity_call_html2 = HTMLField()
+    clarity_call_button2 = models.TextField()
+
+    htmlcontent2 = HTMLField()
+    
+    faq_html = HTMLField()
+
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"SkillToTrainPage updated on {self.updated}"
+
+
+class UltimateTrainerLaunchPackPage(models.Model):
+    header_image = models.ImageField()  # add upload_to for better file management
+    header_html = HTMLField()
+    htmlcontent = HTMLField()
+
+    clarity_call_html1 = HTMLField()
+    clarity_call_button1 = models.TextField()
+    
+    clarity_call_html2 = HTMLField()
+    clarity_call_button2 = models.TextField()
+    content2 = HTMLField()
+
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"UltimateTrainerLaunchPackPage updated on {self.updated}"
+
+
+class WorkshopsPage(models.Model):
+    header_image = models.ImageField()  # add upload_to for better file management
+    htmlcontent = HTMLField()
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"WorkshopsPage updated on {self.updated}"
+
+class AdvancedLeadGenerationPackage(models.Model):
+    header_image = models.ImageField()  # add upload_to for better file management
+    header_html = HTMLField()  # add upload_to for better file management
+    htmlcontent = HTMLField()
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"WorkshopsPage updated on {self.updated}"
+
+
+class FastTrackTrainingPage(models.Model):
+    header_image = models.ImageField()  # add upload_to for better file management
+    header_htmlcontent = HTMLField()
+
+    nich_navigator_header1 = HTMLField()
+    nich_navigator_header2 = HTMLField()
+    nich_navigator_header_image = models.ImageField()
+    nich_navigator_button1 = models.TextField()
+    nich_navigator_button2 = models.TextField()
+    nich_navigator_htmlcontent1 = HTMLField()
+    nich_navigator_htmlcontent2 = HTMLField()
+
+    meta_google_header1 = HTMLField()
+    meta_google_header2 = HTMLField()
+    meta_google_header_image = models.ImageField()
+    meta_google_button1 = models.TextField()
+    meta_google_button2 = models.TextField()
+    meta_google_htmlcontent1 = HTMLField()
+    meta_google_htmlcontent2 = HTMLField()
+
+    instagram_seo_header1 = HTMLField()
+    instagram_seo_header2 = HTMLField()
+    instagram_seo_header_image = models.ImageField()
+    instagram_seo_button1 = models.TextField()
+    instagram_seo_button2 = models.TextField()
+    instagram_seo_htmlcontent1 = HTMLField()
+    instagram_seo_htmlcontent2 = HTMLField()
+
+    canva_header1 = HTMLField()
+    canva_header2 = HTMLField()
+    canva_header_image = models.ImageField()
+    canva_button1 = models.TextField()
+    canva_button2 = models.TextField()
+    canva_htmlcontent1 = HTMLField()
+    canva_htmlcontent2 = HTMLField()
+
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return f"FastTrackTrainingPage updated on {self.updated}"

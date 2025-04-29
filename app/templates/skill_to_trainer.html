@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+{% include "navbar.html" %}
+
+<section id="main"  class="container-fluid">
+    <header class="text-center mb-5">
+        {{ page.header_html|safe }}
+        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4">
+    </header>
+
+    <div class="container p-3">
+        {{ page.htmlcontent|safe }}
+
+        <section class="text-center mb-5 px-3 px-md-5">
+            <div class="mb-4">
+                <h5 class="text-uppercase text-secondary fw-semibold">More Than Just a Plan!</h5>
+                <p class="fs-5">The 3-hour session can be fully customized to match your specific business needs and goals.</p>
+        
+                <h6 class="fw-bold mt-4">The Outcome?</h6>
+                <ul class="list-unstyled d-inline-block text-start mx-auto" style="max-width: 600px;">
+                    <li class="mb-2">✔️ <strong>Clarity</strong> on your niche, positioning & business model</li>
+                    <li class="mb-2">✔️ A <strong>full content strategy</strong> to grow your clients</li>
+                    <li class="mb-2">✔️ A <strong>monetization roadmap</strong> to turn leads into clients</li>
+                    <li class="mb-2">✔️ A <strong>step-by-step plan</strong> to execute immediately</li>
+                </ul>
+            </div>
+        
+            <h2 class="h3 fw-bold">Book Your Business Power Hour Call Now</h2>
+            <p class="mb-4 fs-5">🔥 Let’s make your business vision a reality! 🚀</p>
+            <a href="https://calendly.com/your-link" class="btn btn-maroon btn-lg px-4 py-2">
+                Book 3-Hour Business Power Hour Session
+            </a>
+        </section>
+        
+        
+        <!-- Free 15-Minute Clarity Call Section -->
+        <section class="text-center mb-5">
+            <h2 class="h3">Need Something Different? Let’s Customize Your Plan!</h2>
+            <p>Book a FREE 15-minute clarity call to discuss your needs.</p>
+            <a href="https://calendly.com/your-link" class="btn btn-maroon btn-lg">
+                Book Free 15-Minute Clarity Call
+            </a>
+        </section>
+
+        <!-- Who Needs This Section -->
+         {{ page.htmlcontent2|safe }}
+
+        <!-- FAQs Section -->
+        <section class="mb-5">
+            {{ page.faq_html|safe }}
+        </section>
+    </div>
+
+</section>
+{% endblock content %}
+
