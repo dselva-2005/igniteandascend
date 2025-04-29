@@ -33,7 +33,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-maroon">{{ book.title }}</h5>
                         </div>
-                        <button class="drive_download btn btn-maroon">Buy Now</button>
+                        <button data-book-price="{{ book.price }}" data-book-url="{{ book.book.url }}" class="drive_download btn btn-maroon">Buy Now</button>
                     </div>
                 </div>
             {% endfor %}
@@ -47,11 +47,13 @@
     
     </div>
 </section>
-
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
     const CLIENT_ID = '251224407414-g0hk1l0ibdk5ml5ed34a96h1a2scjkec.apps.googleusercontent.com';
     const APP_ID = 'able-current-442512-k7';
-    const FILE_URL = 'http://127.0.0.1:8000/media/48_Laws_of_Power_The_-_Robert_Greene_Joost_Elffers.pdf';
+    let FILE_URL = '';
+    const RAZORPAY_KEY = "{{ RAZORPAY_KEY_ID }}";  // Pass this from context in Django view
+
 
     let accessToken = null;
     let pickerInited = false;
@@ -135,6 +137,37 @@
             alert('❌ Something went wrong.');
         }
     }
+    async function createOrderAndPay(amount) {
+        const response = await fetch("create-order/", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({ amount: amount })  // amount in paisa
+        });
+
+        const orderData = await response.json();
+
+        const options = {
+            "key": RAZORPAY_KEY,
+            "amount": orderData.amount,
+            "currency": orderData.currency,
+            "name": "Your Site Name",
+            "description": "Ebook Purchase",
+            "order_id": orderData.id,
+            "handler": function (response){
+                tokenClient.requestAccessToken();
+                // TODO: Send payment info to backend to verify & unlock book
+            },
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        
+        const rzp = new Razorpay(options);
+        rzp.open();
+    }
 
     let tokenClient = null;
     window.onload = () => {
@@ -153,14 +186,20 @@
                 showPicker();
             }
         });
+        Array.from(document.getElementsByClassName('drive_download')).forEach((element)=>{
+            element.addEventListener('click', () => {
+                const priceInRupees = parseFloat(element.dataset.bookPrice);
+                const relativePath = element.dataset.bookUrl;
+                const absoluteURL = window.location.origin + relativePath;
+                FILE_URL = absoluteURL;
+                const amountInPaise = Math.round(priceInRupees * 100);
+                console.log(amountInPaise);
+                createOrderAndPay(amountInPaise);
+            });
+        });
 
         loadPickerApi();
 
-        Array.from(document.getElementsByClassName('drive_download')).forEach((element)=>{
-            element.addEventListener('click', () => {
-                tokenClient.requestAccessToken();
-            });
-        })
     };
 </script>
 {% endblock content %}

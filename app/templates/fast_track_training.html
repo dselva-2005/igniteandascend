@@ -8,17 +8,7 @@
     <!-- Buttons -->
     <div class="container-fluid">
       {{ page.header_htmlcontent|safe }}
-      {% comment %} <h1 class="fw-bold mt-5 bg-dark text-white text-center p-3">1:1 Fast Track Trainer in 3 Hours</h1>
-      <p class="mt-3">
-        Unlock the power of digital tools with our focused 1-on-1 training sessions designed just for you.
-        In just 3 hours, master <strong>The Niche Navigator</strong>, the essentials of <strong>Meta Ads</strong>, <strong>Google Ads</strong>, <strong>Canva</strong>, and how to <strong>position yourself as a successful coach or digital trainer</strong>.
-      </p>
-      <p>
-        Whether you're a complete beginner or looking to level up, we break down complex tools into simple, actionable steps. These sessions are <strong>hands-on, personalized, and results-driven</strong>.
-      </p>
-      <p>
-        Walk away with <strong>clarity, confidence, and a customized roadmap</strong> to launch or elevate your digital coaching journey.
-      </p> {% endcomment %}
+      
     </div>
  
    <div class="d-flex justify-content-center gap-3 mb-4">
@@ -47,48 +37,16 @@
           </div>
       </div>
           {{ page.nich_navigator_htmlcontent2|safe }}
-              {% comment %} <div class="mt-4 d-flex flex-wrap gap-3">
-                  <a href="https://calendly.com/your-link" class="btn btn-maroon btn-lg" target="_blank">
-                      Book 3 Hour Session
-                  </a>
-                  <a href="https://calendly.com/your-link" class="btn btn-outline-secondary btn-lg" target="_blank">
-                      Book Free 15-min Clarity Call
-                  </a>
-              </div>
-          
-              <div class="mt-5">
-                  <h4 class="text-secondary">🧠 Who Is This For?</h4>
-                  <ul class="list-group list-group-flush">
-                      <li class="list-group-item">✔️ Women looking to monetize their skill</li>
-                      <li class="list-group-item">✔️ Part-time & full-time professionals</li>
-                      <li class="list-group-item">✔️ Entrepreneurs & small business owners</li>
-                      <li class="list-group-item">✔️ Startups & side hustlers</li>
-                      <li class="list-group-item">✔️ Influencers & content creators</li>
-                      <li class="list-group-item">✔️ Anyone ready to build a brand around their skills</li>
-                  </ul>
-              </div>
-          
-              <div class="mt-4">
-                  <h4 class="text-secondary">🌟 How Will It Benefit You?</h4>
-                  <ul class="list-group list-group-flush">
-                      <li class="list-group-item">✅ Gain absolute clarity on your niche and ideal audience.</li>
-                      <li class="list-group-item">✅ Validate your niche with real market demand.</li>
-                      <li class="list-group-item">✅ Learn multiple ways to monetize your expertise and skills.</li>
-                      <li class="list-group-item">✅ Avoid common mistakes and save time, money, and energy.</li>
-                      <li class="list-group-item">✅ Build a niche-based business with confidence, strategy, and direction.</li>
-                  </ul>
-              </div>
-          
-              <div class="mt-4">
-                  <h4 class="text-secondary">🎁 What Will You Get?</h4>
-                  <ul class="list-group list-group-flush">
-                      <li class="list-group-item">✅ 3-hour live, expert-led, hands-on training session.</li>
-                      <li class="list-group-item">✅ A clearly defined and validated niche to focus on.</li>
-                      <li class="list-group-item">✅ A roadmap to monetize your niche.</li>
-                      <li class="list-group-item">✅ A mini project to implement your learning.</li>
-                      <li class="list-group-item">✅ Certificate of Completion</li>
-                  </ul>
-              </div> {% endcomment %}
+                  
+        <!-- Booking Section -->
+        <div class="mt-5 d-flex flex-wrap gap-3">
+          <a href="{{ page.nich_navigator_link1 }}" target="_blank" class="btn btn-maroon btn-lg">
+            {{ page.nich_navigator_button1 }}
+          </a>
+          <a href="{{ page.nich_navigator_link2 }}" target="_blank" class="btn btn-outline-secondary btn-lg">
+            {{ page.nich_navigator_button2 }}
+          </a>
+        </div>
     </div>
     <div id="section2" class="content-section bg-white rounded shadow p-4 m-4">
       <div class="container">
@@ -98,16 +56,13 @@
         </div>
         {{ page.meta_google_htmlcontent1|safe }}
         
-        <p class="mt-2">🔹 Final Project Work and certification</p>
-        <p>Q&A + Feedback Round</p>
-    
         <!-- Booking Section -->
         <div class="mt-5 d-flex flex-wrap gap-3">
-          <a href="https://calendly.com/your-link" target="_blank" class="btn btn-maroon btn-lg">
-            Book 3 hour Session (Calendly, payment gateway)
+          <a href="{{ page.meta_google_link1 }}" target="_blank" class="btn btn-maroon btn-lg">
+            {{ page.meta_google_button1 }}
           </a>
-          <a href="https://calendly.com/your-link" target="_blank" class="btn btn-outline-secondary btn-lg">
-            Book free 15 minute clarity call (Calendly)
+          <a href="{{ page.meta_google_button2 }}" target="_blank" class="btn btn-outline-secondary btn-lg">
+            {{ page.meta_google_link2 }}
           </a>
         </div>
         {{ page.meta_google_htmlcontent2|safe }}
@@ -122,11 +77,11 @@
         </header>
         {{ page.instagram_seo_htmlcontent1 }}
         <div class="mt-4 d-flex flex-wrap gap-3">
-          <a href="https://calendly.com/your-link" class="btn btn-maroon btn-lg" target="_blank">
-            Book 3 Hour Session
+          <a href="{{ page.instagram_seo_link1 }}" class="btn btn-maroon btn-lg" target="_blank">
+            {{ page.instagram_seo_button1 }}
           </a>
-          <a href="https://calendly.com/your-link" class="btn btn-outline-secondary btn-lg" target="_blank">
-            Book Free 15-min Clarity Call
+          <a href="{{ page.instagram_seo_link2 }}" class="btn btn-outline-secondary btn-lg" target="_blank">
+            {{ page.instagram_seo_button2 }}
           </a>
         </div>
         {{ page.instagram_seo_htmlcontent2|safe }}
@@ -141,11 +96,11 @@
        {{ page.canva_htmlcontent1|safe }}
        <!-- CTA Buttons -->
        <div class="mt-4 d-flex flex-wrap gap-3">
-           <a href="https://calendly.com/your-link" class="btn btn-maroon btn-lg" target="_blank">
-               Book 3 Hour Session
+           <a href="{{ page.canva_link1 }}" class="btn btn-maroon btn-lg" target="_blank">
+               {{ page.canva_button1 }}
            </a>
-           <a href="https://calendly.com/your-link" class="btn btn-outline-secondary btn-lg" target="_blank">
-               Book Free 15-min Clarity Call
+           <a href="{{ page.canva_link2 }}" class="btn btn-outline-secondary btn-lg" target="_blank">
+               {{ page.canva_button2 }}
            </a>
        </div>
       {{ page.canva_htmlcontent2|safe }}

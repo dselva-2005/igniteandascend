@@ -19,6 +19,7 @@ class HomePage(models.Model):
     slide_image11 = models.ImageField()
     slide_image12 = models.ImageField()
     about_image = models.ImageField()
+    about_content = HTMLField()
     htmlContent = HTMLField()
     our_service_image1 = models.ImageField()
     our_service_image2 = models.ImageField()
@@ -75,6 +76,7 @@ class ContactPage(models.Model):
     form_upper_html = HTMLField()
     form_below_html = HTMLField()
     clarity_call_html = HTMLField()
+    clarity_call_link = models.TextField()
     clarity_call_button = models.TextField()
     created = models.DateTimeField(auto_now_add=True)  # corrected this
     updated = models.DateTimeField(auto_now=True)      # corrected this
@@ -94,9 +96,11 @@ class BeginnerToProPage(models.Model):
     pro_html = HTMLField()
     
     clarity_call_html1 = HTMLField()
+    clarity_call_link1 = models.TextField()
     clarity_call_button1 = models.TextField()
     
     clarity_call_html2 = HTMLField()
+    clarity_call_link2 = models.TextField()
     clarity_call_button2 = models.TextField()
 
     created = models.DateTimeField(auto_now_add=True)  # corrected this
@@ -117,10 +121,12 @@ class LiveSessionPage(models.Model):
     faq_html = HTMLField()
 
     clarity_call_html1 = HTMLField()
+    clarity_call_link1 = models.TextField()
     clarity_call_button1 = models.TextField()
     
     clarity_call_html2 = HTMLField()
     clarity_call_button2 = models.TextField()
+    clarity_call_link2 = models.TextField()
 
     class Meta:
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
@@ -136,11 +142,9 @@ class SkillToTrainPage(models.Model):
     created = models.DateTimeField(auto_now_add=True)  # corrected this
     updated = models.DateTimeField(auto_now=True)      # corrected this
 
+    clarity_call_link1 = models.TextField()
     clarity_call_html1 = HTMLField()
     clarity_call_button1 = models.TextField()
-    
-    clarity_call_html2 = HTMLField()
-    clarity_call_button2 = models.TextField()
 
     htmlcontent2 = HTMLField()
     
@@ -159,11 +163,10 @@ class UltimateTrainerLaunchPackPage(models.Model):
     header_html = HTMLField()
     htmlcontent = HTMLField()
 
+    clarity_call_link1 = models.TextField()
     clarity_call_html1 = HTMLField()
     clarity_call_button1 = models.TextField()
-    
-    clarity_call_html2 = HTMLField()
-    clarity_call_button2 = models.TextField()
+
     content2 = HTMLField()
 
     created = models.DateTimeField(auto_now_add=True)  # corrected this
@@ -195,6 +198,10 @@ class AdvancedLeadGenerationPackage(models.Model):
     created = models.DateTimeField(auto_now_add=True)  # corrected this
     updated = models.DateTimeField(auto_now=True)      # corrected this
 
+    clarity_call_link1 = models.TextField()
+    clarity_call_html1 = HTMLField()
+    clarity_call_button1 = models.TextField()
+
     class Meta:
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
@@ -211,6 +218,8 @@ class FastTrackTrainingPage(models.Model):
     nich_navigator_header_image = models.ImageField()
     nich_navigator_button1 = models.TextField()
     nich_navigator_button2 = models.TextField()
+    nich_navigator_link1 = models.TextField()
+    nich_navigator_link2 = models.TextField()
     nich_navigator_htmlcontent1 = HTMLField()
     nich_navigator_htmlcontent2 = HTMLField()
 
@@ -218,7 +227,9 @@ class FastTrackTrainingPage(models.Model):
     meta_google_header2 = HTMLField()
     meta_google_header_image = models.ImageField()
     meta_google_button1 = models.TextField()
+    meta_google_link1 = models.TextField()
     meta_google_button2 = models.TextField()
+    meta_google_link2 = models.TextField()
     meta_google_htmlcontent1 = HTMLField()
     meta_google_htmlcontent2 = HTMLField()
 
@@ -226,7 +237,9 @@ class FastTrackTrainingPage(models.Model):
     instagram_seo_header2 = HTMLField()
     instagram_seo_header_image = models.ImageField()
     instagram_seo_button1 = models.TextField()
+    instagram_seo_link1 = models.TextField()
     instagram_seo_button2 = models.TextField()
+    instagram_seo_link2 = models.TextField()
     instagram_seo_htmlcontent1 = HTMLField()
     instagram_seo_htmlcontent2 = HTMLField()
 
@@ -234,7 +247,9 @@ class FastTrackTrainingPage(models.Model):
     canva_header2 = HTMLField()
     canva_header_image = models.ImageField()
     canva_button1 = models.TextField()
+    canva_link1 = models.TextField()
     canva_button2 = models.TextField()
+    canva_link2 = models.TextField()
     canva_htmlcontent1 = HTMLField()
     canva_htmlcontent2 = HTMLField()
 

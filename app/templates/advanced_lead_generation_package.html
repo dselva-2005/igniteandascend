@@ -19,13 +19,9 @@
     <div class="container-fluid">
       {{ apge.htmlcontent| safe }}
       <div class="mt-5 text-center">
-        <h4 class="fw-bold">🗓 Book a call and talk to us to get our special price and payment link:</h4>
-        <p>Book free 15 minute clarity call (Calendly)</p>
-        <a href="#" class="btn btn-maroon mb-2">🔗 Book Now</a>
-        <p class="mb-0">Or</p>
-        <p>📞 Drop a msg at <strong>7899790978</strong> for call back.</p>
+        {{ page.clarity_call_html1 }}
+        <a href="{{ page.clarity_call_link1 }}" class="btn btn-maroon mb-2">{{ page.clarity_call_button1 }}</a>
       </div>
-
     </div>
   </section>
 </section>

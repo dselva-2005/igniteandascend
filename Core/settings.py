@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -185,3 +186,16 @@ TINYMCE_DEFAULT_CONFIG = {
     ''',
     'valid_children': '+body[button|form|iframe|script]',
 }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'smartcard.xie@gmail.com'
+EMAIL_HOST_PASSWORD = 'tyey mqzr jgdo llyt'
+EMAIL_USE_TLS = True
+
+RAZOR_KEY_ID = os.getenv("RAZOR_KEY_ID")
+RAZOR_KEY_SECRET = os.getenv("RAZOR_KEY_SECRET")
+GOOGLE_APP_ID = os.getenv("GOOGLE_APP_ID")
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")

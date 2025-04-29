@@ -19,24 +19,14 @@
   {{ page.htmlcontent|safe }}
   
   <!-- CTA Section -->
-  <section class="bg-dark text-white py-5">
-    <div class="container text-center">
-      <h2 class="section-title mb-3">💼 Exclusive Package Access</h2>
-      <p class="lead">👉 To get our surprise exclusive package price:</p>
-      <p>Book a call and talk to us to receive the offer and payment link.</p>
-  
+  <section class="">
+    <div class="container">
+      {{ page.clarity_call_html1|safe }}
       <div class="my-4">
-        <a href="https://calendly.com/YOUR_CALENDLY_LINK" class="btn btn-warning btn-lg me-3">
-          📅 Book 15-Min Free Clarity Call
+        <a href="{{ page.clarity_call_link1 }}" class="btn btn-warning btn-lg me-3">
+          {{ page.clarity_call_button1 }}
         </a>
-        <p class="mt-3 mb-0">📲 Or drop a message at <strong>7899790978</strong> for a callback.</p>
       </div>
-  
-      <p class="mt-4 text-success">
-        🎁 Surprise Offer Includes Bonuses Worth ₹2,00,000+ <br>
-        💰 Actual Value: ₹3,50,000+ <br>
-        👉 🔗 Book Now & Start Earning!
-      </p>
     </div>
   </section>
   
