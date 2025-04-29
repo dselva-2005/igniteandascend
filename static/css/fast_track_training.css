@@ -1,0 +1,13 @@
+.section-container {
+    border: 1px solid #dee2e6;
+  }
+
+  .content-section {
+
+    display: none;
+    padding: 1.5rem;
+  }
+
+  .content-section.active {
+    display: block;
+  }

@@ -1,0 +1,26 @@
+.hero {
+    color: rgb(0, 0, 0);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .section {
+    padding: 50px 20px;
+  }
+  .section-title {
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: 25px;
+  }
+  .highlight-box {
+    background-color: #fff3cd;
+    border-left: 6px solid #ffc107;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  .cta {
+    background: #343a40;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+  }

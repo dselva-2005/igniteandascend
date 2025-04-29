@@ -1,0 +1,50 @@
+.social-icons a {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: #0d6efd !important;
+}
+footer a:hover {
+    color: #0d6efd !important;
+}
+.carousel-item img {
+    width: 100%;
+    height: 25vw;
+    object-fit: contain;
+}
+#carouselClientImages .carousel-item img {
+    width: 100%;
+    height: 40vw;
+    object-fit: contain;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+#fixed-img {
+    position: fixed;
+    top: 150px;   /* Position it at the top of the screen */
+    left: 0;  /* Position it at the left side */
+    width: 100%; /* Make the image full width */
+    height: auto; /* Maintain aspect ratio */
+    z-index: -1; /* Keep it in the background */
+}
+
+.carousel-control-prev-icon {
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e);
+    filter: invert(1);
+}
+.carousel-control-next-icon {
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e);
+    filter: invert(1);
+}
+#main {
+    margin-bottom: 80vh;
+}
+
+
+.tinymce-content img {
+    max-width: 100%;
+    height: auto;
+}
