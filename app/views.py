@@ -41,7 +41,7 @@ def live_session(request):
 
 def skill_to_trainer(request):
     title = "Skill To Trainer Pack"
-    page = models.AboutPage.objects.first()
+    page = models.SkillToTrainPage.objects.first()
     return render(request,'skill_to_trainer.html',{"title":title,"page":page})
 
 def ultimage_trainer_launch_pack(request):
