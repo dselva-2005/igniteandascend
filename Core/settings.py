@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x2dut5ag(komcd6cex46m32l9lwa2bor8n%wj$3w5q^@h-06!d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 # ALLOWED_HOSTS = ['*']
 
-DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','igniteandascend.com']
 
@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'app.context_processors.pagelinks'
             ],
         },
     },

@@ -4,21 +4,30 @@ import razorpay
 from django.conf import settings
 from django.http import JsonResponse
 import json
-
-client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
+import traceback
 
 def create_razorpay_order(request):
     if request.method == "POST":
-        data = json.loads(request.body)
-        amount = data.get('amount', 50000)  # in paisa (₹500)
+        try:
+            print("Using key:", settings.RAZOR_KEY_ID)
+            client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
+            data = json.loads(request.body)
+            print("Received data:", data)
 
-        order = client.order.create({
-            "amount": amount,
-            "currency": "INR",
-            "payment_capture": 0
-        })
+            amount = int(data.get('amount', 50000))  # ₹500 in paisa
+            order = client.order.create({
+                "amount": amount,
+                "currency": "INR",
+                "payment_capture": 0
+            })
 
-        return JsonResponse(order)
+            return JsonResponse(order)
+
+        except Exception as e:
+            print("Exception occurred:")
+            traceback.print_exc()
+            return JsonResponse({"error": str(e)}, status=500)
+
 
     
 class Books(ListView):

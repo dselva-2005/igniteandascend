@@ -261,3 +261,111 @@ class FastTrackTrainingPage(models.Model):
 
     def __str__(self):
         return f"FastTrackTrainingPage updated on {self.updated}"
+    
+    from django.db import models
+
+class Pagelinks(models.Model):
+    # Each product's name and URL as separate fields
+
+    created = models.DateTimeField(auto_now_add=True)  # corrected this
+    updated = models.DateTimeField(auto_now=True)      # corrected this
+
+    product1name = models.CharField(max_length=255)
+    product1url = models.URLField(max_length=512)
+    
+    product2name = models.CharField(max_length=255)
+    product2url = models.URLField(max_length=512)
+    
+    product3name = models.CharField(max_length=255)
+    product3url = models.URLField(max_length=512)
+    
+    product4name = models.CharField(max_length=255)
+    product4url = models.URLField(max_length=512)
+    
+    product5name = models.CharField(max_length=255)
+    product5url = models.URLField(max_length=512)
+    
+    product6name = models.CharField(max_length=255)
+    product6url = models.URLField(max_length=512)
+    
+    product7name = models.CharField(max_length=255)
+    product7url = models.URLField(max_length=512)
+    
+    product8name = models.CharField(max_length=255)
+    product8url = models.URLField(max_length=512)
+    
+    product9name = models.CharField(max_length=255)
+    product9url = models.URLField(max_length=512)
+    
+    product10name = models.CharField(max_length=255)
+    product10url = models.URLField(max_length=512)
+    
+    product11name = models.CharField(max_length=255)
+    product11url = models.URLField(max_length=512)
+    
+    product12name = models.CharField(max_length=255)
+    product12url = models.URLField(max_length=512)
+    
+    product13name = models.CharField(max_length=255)
+    product13url = models.URLField(max_length=512)
+    
+    product14name = models.CharField(max_length=255)
+    product14url = models.URLField(max_length=512)
+    
+    product15name = models.CharField(max_length=255)
+    product15url = models.URLField(max_length=512)
+    
+    product16name = models.CharField(max_length=255)
+    product16url = models.URLField(max_length=512)
+    
+    product17name = models.CharField(max_length=255)
+    product17url = models.URLField(max_length=512)
+    
+    product18name = models.CharField(max_length=255)
+    product18url = models.URLField(max_length=512)
+    
+    product19name = models.CharField(max_length=255)
+    product19url = models.URLField(max_length=512)
+    
+    product20name = models.CharField(max_length=255)
+    product20url = models.URLField(max_length=512)
+    
+    product21name = models.CharField(max_length=255)
+    product21url = models.URLField(max_length=512)
+    
+    product22name = models.CharField(max_length=255)
+    product22url = models.URLField(max_length=512)
+    
+    product23name = models.CharField(max_length=255)
+    product23url = models.URLField(max_length=512)
+    
+    product24name = models.CharField(max_length=255)
+    product24url = models.URLField(max_length=512)
+    
+    product25name = models.CharField(max_length=255)
+    product25url = models.URLField(max_length=512)
+    
+    product26name = models.CharField(max_length=255)
+    product26url = models.URLField(max_length=512)
+    
+    product27name = models.CharField(max_length=255)
+    product27url = models.URLField(max_length=512)
+    
+    product28name = models.CharField(max_length=255)
+    product28url = models.URLField(max_length=512)
+    
+    product29name = models.CharField(max_length=255)
+    product29url = models.URLField(max_length=512)
+    
+    product30name = models.CharField(max_length=255)
+    product30url = models.URLField(max_length=512)
+    
+    product31name = models.CharField(max_length=255)
+    product31url = models.URLField(max_length=512)
+
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        return "Product Links"
+

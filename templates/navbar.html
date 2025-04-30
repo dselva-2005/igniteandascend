@@ -30,55 +30,57 @@
           </a>
           <ul class="dropdown-menu p-3 shadow" aria-labelledby="navbarDropdown">
             <div class="row">
+              
               <!-- Consecrated -->
               <div class="col-md-4">
                 <h6 class="dropdown-header text-danger fw-bold">Consecrated</h6>
-                <a class="dropdown-item" href="#">Devi Panel <span class="badge bg-success">New</span></a>
-                <a class="dropdown-item" href="#">Dhyanalinga Vastram <span class="badge bg-success">New</span></a>
-                <a class="dropdown-item" href="#">Linga Bhairavi Gudi</a>
-                <a class="dropdown-item" href="#">Linga Bhairavi Pendant</a>
-                <a class="dropdown-item" href="#">Devi Consecrated Sarees</a>
-                <a class="dropdown-item" href="#">Devi Abhaya Sutra</a>
-                <a class="dropdown-item" href="#">Adiyogi Abhaya Sutra <span class="badge bg-success">New</span></a>
-                <a class="dropdown-item" href="#">Dhyanalinga Yantra</a>
-                <a class="dropdown-item" href="#">Snake Ring</a>
-                <a class="dropdown-item" href="#">Vibhuti</a>
-                <a class="dropdown-item" href="#">Jeevarasam</a>
-                <a class="dropdown-item" href="#">Linga Jyothi</a>
-                <a class="dropdown-item" href="#">Dhyanalinga Pendant</a>
-                <a class="dropdown-item" href="#">Devi Pooja Offerings</a>
-                <a class="dropdown-item" href="#">Devi Shawls & Vastram</a>
+                <a class="dropdown-item" href="{{ pagelinks.product1url }}">{{ pagelinks.product1name }} <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="{{ pagelinks.product2url }}">{{ pagelinks.product2name }} <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="{{ pagelinks.product3url }}">{{ pagelinks.product3name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product4url }}">{{ pagelinks.product4name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product5url }}">{{ pagelinks.product5name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product6url }}">{{ pagelinks.product6name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product7url }}">{{ pagelinks.product7name }} <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="{{ pagelinks.product8url }}">{{ pagelinks.product8name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product9url }}">{{ pagelinks.product9name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product10url }}">{{ pagelinks.product10name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product11url }}">{{ pagelinks.product11name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product12url }}">{{ pagelinks.product12name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product13url }}">{{ pagelinks.product13name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product14url }}">{{ pagelinks.product14name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product15url }}">{{ pagelinks.product15name }}</a>
               </div>
         
               <!-- Temple -->
               <div class="col-md-4">
                 <h6 class="dropdown-header text-danger fw-bold">Temple</h6>
-                <a class="dropdown-item" href="#">Linga Bhairavi Mukha</a>
-                <a class="dropdown-item" href="#">Adiyogi Miniatures <span class="badge bg-success">New</span></a>
-                <a class="dropdown-item" href="#">Devi Yantra Accessories</a>
-                <a class="dropdown-item" href="#">Sannidhi Accessories</a>
-                <a class="dropdown-item" href="#">Bond of Grace Sutra</a>
-                <a class="dropdown-item" href="#">Incense and Sambrani</a>
-                <a class="dropdown-item" href="#">Lamps & Diyas</a>
-                <a class="dropdown-item" href="#">Pooja Essentials</a>
-                <a class="dropdown-item" href="#">Photos</a>
-                <a class="dropdown-item" href="#">Chant Box</a>
-                <a class="dropdown-item" href="#">Temple Merchandise</a>
-                <a class="dropdown-item" href="#">Wall panels</a>
+                <a class="dropdown-item" href="{{ pagelinks.product16url }}">{{ pagelinks.product16name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product17url }}">{{ pagelinks.product17name }} <span class="badge bg-success">New</span></a>
+                <a class="dropdown-item" href="{{ pagelinks.product18url }}">{{ pagelinks.product18name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product19url }}">{{ pagelinks.product19name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product20url }}">{{ pagelinks.product20name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product21url }}">{{ pagelinks.product21name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product22url }}">{{ pagelinks.product22name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product23url }}">{{ pagelinks.product23name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product24url }}">{{ pagelinks.product24name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product25url }}">{{ pagelinks.product25name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product26url }}">{{ pagelinks.product26name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product27url }}">{{ pagelinks.product27name }}</a>
               </div>
         
               <!-- Consecrated Rudraksha -->
               <div class="col-md-4">
                 <h6 class="dropdown-header text-danger fw-bold">Consecrated Rudraksha</h6>
-                <a class="dropdown-item" href="#">Panchamukhi Malas</a>
-                <a class="dropdown-item" href="#">Rudraksha Beads</a>
-                <a class="dropdown-item" href="#">Spatik Malas</a>
-                <a class="dropdown-item" href="#">Rudraksh Guide</a>
+                <a class="dropdown-item" href="{{ pagelinks.product28url }}">{{ pagelinks.product28name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product29url }}">{{ pagelinks.product29name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product30url }}">{{ pagelinks.product30name }}</a>
+                <a class="dropdown-item" href="{{ pagelinks.product31url }}">{{ pagelinks.product31name }}</a>
               </div>
+        
             </div>
           </ul>
         </li>
-
+        
         <li class="nav-item">
           <a class="nav-link {% if active == 'ebooks' %}cactive{% endif %}" href="{% url 'books:book-list' %}">Ebooks</a>
         </li>
