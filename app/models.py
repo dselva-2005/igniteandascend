@@ -298,7 +298,7 @@ class Pagelinks(models.Model):
     product8name = HTMLField()
     product8url = models.URLField(max_length=512)
     
-    product9name = models.CharField(max_length=255)
+    product9name = HTMLField()
     product9url = models.URLField(max_length=512)
     
     product10name = models.CharField(max_length=255)

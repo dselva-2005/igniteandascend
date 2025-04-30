@@ -23,6 +23,7 @@ class PagelinksAdmin(admin.ModelAdmin):
         'product6name', 'product6url',
         'product7name', 'product7url',
         'product8name', 'product8url',
+        'product9name', 'product9url',
     )
     
     # Limit the number of fields in the form view
