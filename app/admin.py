@@ -11,3 +11,31 @@ admin.site.register(models.BeginnerToProPage)
 admin.site.register(models.AboutPage)
 admin.site.register(models.SkillToTrainPage)
 admin.site.register(models.AdvancedLeadGenerationPackage)
+
+class PagelinksAdmin(admin.ModelAdmin):
+    # Define which fields you want to display
+    list_display = (
+        'product1name', 'product1url',
+        'product2name', 'product2url',
+        'product3name', 'product3url',
+        'product4name', 'product4url',
+        'product5name', 'product5url',
+        'product6name', 'product6url',
+        'product7name', 'product7url',
+        'product8name', 'product8url',
+    )
+    
+    # Limit the number of fields in the form view
+    fields = (
+        'product1name', 'product1url',
+        'product2name', 'product2url',
+        'product3name', 'product3url',
+        'product4name', 'product4url',
+        'product5name', 'product5url',
+        'product6name', 'product6url',
+        'product7name', 'product7url',
+        'product8name', 'product8url',
+    )
+
+# Register the custom admin for ProductLinks
+admin.site.register(models.Pagelinks, PagelinksAdmin)

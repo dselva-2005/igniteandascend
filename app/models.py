@@ -270,28 +270,32 @@ class Pagelinks(models.Model):
     created = models.DateTimeField(auto_now_add=True)  # corrected this
     updated = models.DateTimeField(auto_now=True)      # corrected this
 
-    product1name = models.CharField(max_length=255)
+    title1 = HTMLField()
+    title2 = HTMLField()
+    title3 = HTMLField()
+
+    product1name = HTMLField()
     product1url = models.URLField(max_length=512)
     
-    product2name = models.CharField(max_length=255)
+    product2name = HTMLField()
     product2url = models.URLField(max_length=512)
     
-    product3name = models.CharField(max_length=255)
+    product3name = HTMLField()
     product3url = models.URLField(max_length=512)
     
-    product4name = models.CharField(max_length=255)
+    product4name = HTMLField()
     product4url = models.URLField(max_length=512)
     
-    product5name = models.CharField(max_length=255)
+    product5name = HTMLField()
     product5url = models.URLField(max_length=512)
     
-    product6name = models.CharField(max_length=255)
+    product6name = HTMLField()
     product6url = models.URLField(max_length=512)
     
-    product7name = models.CharField(max_length=255)
+    product7name = HTMLField()
     product7url = models.URLField(max_length=512)
     
-    product8name = models.CharField(max_length=255)
+    product8name = HTMLField()
     product8url = models.URLField(max_length=512)
     
     product9name = models.CharField(max_length=255)
