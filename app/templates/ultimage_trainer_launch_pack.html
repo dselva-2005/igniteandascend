@@ -11,25 +11,26 @@
     <img src="{{ page.header_html.url }}" alt="Business Strategy" class="img-fluid">
   </header>
   <div class="container">
-  <!-- HERO SECTION -->
-  <section class="hero">
-    {{ page.header_html|safe }}
-   </section>
-  
-  {{ page.htmlcontent|safe }}
-  
-  <!-- CTA Section -->
-  <section class="">
-    <div class="container">
-      {{ page.clarity_call_html1|safe }}
-      <div class="my-4">
-        <a href="{{ page.clarity_call_link1 }}" class="btn btn-warning btn-lg me-3">
-          {{ page.clarity_call_button1 }}
-        </a>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      {{ page.header_html|safe }}
+    </section>
+    
+    {{ page.htmlcontent|safe }}
+    
+    <!-- CTA Section -->
+    <section class="">
+      <div class="container">
+        {{ page.clarity_call_html1|safe }}
+        <div class="my-4">
+          <a href="{{ page.clarity_call_link1 }}" class="btn btn-warning btn-lg me-3">
+            {{ page.clarity_call_button1 }}
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-  
-  {{ page.content2|safe }}
+    </section>
+    {{ page.content2|safe }}
+    
+  </div>
   
 {% endblock content %}
