@@ -142,10 +142,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
 TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 50,
-    'selector': 'textarea',
+    'selector': 'textarea.tinymce',
     'theme': 'silver',
     'height': 600,
     'plugins': '''
