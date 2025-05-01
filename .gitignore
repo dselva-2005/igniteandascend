@@ -12,6 +12,7 @@
 *.sqlite3
 media/
 staticfiles/
+protected/
 
 # Virtual environments
 venv/
