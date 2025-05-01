@@ -61,8 +61,13 @@ def verify_and_capture_payment(request):
 def serve_paywalled_media(request, path):
     payment_id = request.GET.get('payment_id')
 
-    if not payment_id or not verify_payment_on_rzp(payment_id) or not request.user.is_staff:
-        return HttpResponseForbidden("Access Denied: Invalid or missing payment.")
+    if payment_id:
+        if not verify_payment_on_rzp(payment_id):
+            return HttpResponseForbidden("Access Denied: Payment not verified.")
+
+    elif not request.user.is_staff:
+        return HttpResponseForbidden("Access Denied: Staff only.")
+
 
     file_path = f'/home/dselva/python_projects/professional_order_1/protected/{path}'
     content_type, _ = mimetypes.guess_type(file_path)
