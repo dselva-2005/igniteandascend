@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from books.models import Book
+from books.models import Book,BookPage
 import razorpay
 from django.conf import settings
 from django.http import JsonResponse
@@ -36,5 +36,6 @@ class Books(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = "Ebooks"
+        context['page'] = BookPage.objects.first()
         context['RAZORPAY_KEY_ID'] = settings.RAZOR_KEY_ID
         return context
