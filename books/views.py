@@ -57,20 +57,19 @@ def verify_and_capture_payment(request):
             return JsonResponse({"status": "error", "message": str(e)}, status=500)
 
 
-@login_required  # or use your custom paywall logic
-def serve_paywalled_media(request, path):
-    # Paywall logic here (e.g., check if user paid for this content)
-    has_access = True  # Replace this with your own logic
 
-    if not has_access:
-        return HttpResponseForbidden("Access Denied")
+def serve_paywalled_media(request, path):
+    payment_id = request.GET.get('payment_id')
+
+    if not payment_id or not verify_payment_on_rzp(payment_id):
+        return HttpResponseForbidden("Access Denied: Invalid or missing payment.")
 
     file_path = f'/home/dselva/python_projects/professional_order_1/protected/{path}'
     content_type, _ = mimetypes.guess_type(file_path)
 
     response = HttpResponse()
     response['Content-Type'] = content_type or 'application/octet-stream'
-    response['X-Accel-Redirect'] = f'/protected_internal/{path}'
+    response['X-Accel-Redirect'] = f'/protected_internal/{path}'  # Nginx will serve the file
     return response
 
 
