@@ -9,10 +9,8 @@ import traceback
 def create_razorpay_order(request):
     if request.method == "POST":
         try:
-            print("Using key:", settings.RAZOR_KEY_ID)
             client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
             data = json.loads(request.body)
-            print("Received data:", data)
 
             amount = int(data.get('amount', 50000))  # ₹500 in paisa
             order = client.order.create({
@@ -38,4 +36,6 @@ class Books(ListView):
         context['title'] = "Ebooks"
         context['page'] = BookPage.objects.first()
         context['RAZORPAY_KEY_ID'] = settings.RAZOR_KEY_ID
+        context['GOOGLE_CLIENT_ID'] = settings.GOOGLE_CLIENT_ID
+        context['GOOGLE_APP_ID'] = settings.GOOGLE_APP_ID
         return context

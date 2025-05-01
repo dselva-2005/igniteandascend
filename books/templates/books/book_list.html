@@ -49,8 +49,8 @@
 </section>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-    const CLIENT_ID = '251224407414-g0hk1l0ibdk5ml5ed34a96h1a2scjkec.apps.googleusercontent.com';
-    const APP_ID = 'able-current-442512-k7';
+    const CLIENT_ID = "{{ GOOGLE_CLIENT_ID }}";
+    const APP_ID = "{{ GOOGLE_APP_ID }}";
     let FILE_URL = '';
     const RAZORPAY_KEY = "{{ RAZORPAY_KEY_ID }}";  // Pass this from context in Django view
 
