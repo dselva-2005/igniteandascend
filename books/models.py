@@ -2,12 +2,15 @@ from django.db import models
 from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 from django.utils import timezone
+from .storage import ProtectedMediaStorage
+
+protected_storage = ProtectedMediaStorage()
 
 # Create your models here.
 class Book(models.Model):
     cover_page = models.ImageField()
     title = models.CharField(max_length=50)
-    book = models.FileField()
+    book = models.FileField(storage=protected_storage)
     price = models.IntegerField()
 
     def get_n_pages(n):

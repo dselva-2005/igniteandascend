@@ -1,10 +1,67 @@
+import json
+import razorpay
+import traceback
+from django.conf import settings
 from django.views.generic import ListView
 from books.models import Book,BookPage
-import razorpay
-from django.conf import settings
 from django.http import JsonResponse
-import json
-import traceback
+from django.http import HttpResponse, HttpResponseForbidden
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from books.models import Book, Purchase
+from django.utils import timezone
+import mimetypes
+
+@csrf_exempt
+@login_required
+def verify_and_capture_payment(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            payment_id = data.get("payment_id")
+            order_id = data.get("order_id")
+            book_id = data.get("book_id")
+
+            client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
+
+            # 1. Verify the payment exists
+            payment = client.payment.fetch(payment_id)
+
+            # 2. Optionally verify the signature (recommended for high security)
+            # Skipping here for brevity
+
+            # 3. Capture the payment
+            amount = payment["amount"]
+            client.payment.capture(payment_id, amount)
+
+            # 4. Grant access: create Purchase record
+            book = Book.objects.get(id=book_id)
+            Purchase.objects.create(user=request.user, book=book, purchased_at=timezone.now())
+
+            return JsonResponse({"status": "success", "message": "Payment captured and access granted."})
+
+        except Exception as e:
+            traceback.print_exc()
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+
+
+@login_required  # or use your custom paywall logic
+def serve_paywalled_media(request, path):
+    # Paywall logic here (e.g., check if user paid for this content)
+    has_access = False  # Replace this with your own logic
+
+    if not has_access:
+        return HttpResponseForbidden("Access Denied")
+
+    file_path = f'/home/dselva/python_projects/professional_order_1/protected/{path}'
+    content_type, _ = mimetypes.guess_type(file_path)
+
+    response = HttpResponse()
+    response['Content-Type'] = content_type or 'application/octet-stream'
+    response['X-Accel-Redirect'] = f'/protected_internal/{path}'
+    return response
+
 
 def create_razorpay_order(request):
     if request.method == "POST":

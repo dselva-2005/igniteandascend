@@ -6,6 +6,6 @@ app_name = 'books'  # This is necessary for namespacing
 
 urlpatterns = [
     path('',views.Books.as_view(),name='book-list'),
-    path("create-order/", views.create_razorpay_order, name="create_razorpay_order")
-
+    path("create-order/", views.create_razorpay_order, name="create_razorpay_order"),
+    path('secure-media/<path:path>/', views.serve_paywalled_media, name='secure_media'),
 ]

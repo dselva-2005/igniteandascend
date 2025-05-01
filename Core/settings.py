@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'tinymce',
     'app',
     'books'
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'Core.urls'
@@ -208,3 +210,4 @@ RAZOR_KEY_ID = os.getenv("RAZOR_KEY_ID")
 RAZOR_KEY_SECRET = os.getenv("RAZOR_KEY_SECRET")
 GOOGLE_APP_ID = os.getenv("GOOGLE_APP_ID")
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+CORS_ALLOW_ALL_ORIGINS = True
