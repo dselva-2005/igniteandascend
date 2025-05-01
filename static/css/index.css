@@ -162,7 +162,7 @@ body {
         object-fit: contain;
     }
     .dropdown-menu{
-        width: 60vw;
+        width: 50vw;
         height: 60vh;
     }
 }
