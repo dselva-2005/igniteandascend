@@ -6,25 +6,27 @@
 <link rel="stylesheet" href="{% static 'css/fast_track_training.css' %}">
 <section id="main">
     <!-- Buttons -->
-    <div class="container-fluid">
+    <div class="p-5">
       {{ page.header_htmlcontent|safe }}
       
     </div>
- 
-   <div class="d-flex justify-content-center gap-3 mb-4">
-     <button class="btn btn-outline-maroon" onclick="showSection('section1')">
-      {{ page.nich_navigator_header1|safe }}
-     </button>
-     <button class="btn btn-outline-maroon" onclick="showSection('section2')">
-      {{ page.meta_google_header1|safe }}
-     </button>
-     <button class="btn btn-outline-maroon" onclick="showSection('section3')">
-      {{ page.instagram_seo_header1|safe }}
-     </button>
-     <button class="btn btn-outline-maroon" onclick="showSection('section4')">
-      {{ page.canva_header1|safe }}
-     </button>
-   </div>
+    
+    <div class="container">
+        <div class="d-flex justify-content-center gap-3 mb-4">
+          <button class="btn btn-outline-maroon" onclick="showSection('section1')">
+          {{ page.nich_navigator_header1|safe }}
+          </button>
+          <button class="btn btn-outline-maroon" onclick="showSection('section2')">
+          {{ page.meta_google_header1|safe }}
+          </button>
+          <button class="btn btn-outline-maroon" onclick="showSection('section3')">
+          {{ page.instagram_seo_header1|safe }}
+          </button>
+          <button class="btn btn-outline-maroon" onclick="showSection('section4')">
+          {{ page.canva_header1|safe }}
+          </button>
+        </div>
+    </div>
  
    <!-- Section Container -->
    <section class="container">
@@ -110,11 +112,22 @@
    </section>
  
 </section>
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('.content-section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+<script>
+  function showSection(id) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(sec => sec.classList.remove('active'));
+
+    // Show selected section
+    document.getElementById(id).classList.add('active');
+
+    // Remove 'active' class from all buttons
+    const buttons = document.querySelectorAll('.btn-outline-maroon');
+    buttons.forEach(btn => btn.classList.remove('btn-maroon'));
+
+    // Add 'active' to the clicked button
+    event.currentTarget.classList.add('btn-maroon');
+  }
+</script>
+
 {% endblock content %}

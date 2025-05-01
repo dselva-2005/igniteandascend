@@ -11,3 +11,7 @@
   .content-section.active {
     display: block;
   }
+
+  .active{
+    background-color: pink;
+  }

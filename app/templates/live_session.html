@@ -7,14 +7,14 @@
 <link rel="stylesheet" href="{% static "css/live_session.css" %}">
 <!-- Hero Section -->
  <section id="main">
-   <section class="container-fluid p-3">
+   <section class="container">
     {{ page.header_html|safe }}
    </section>
    
    <header class="text-center mb-5">
        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4" style="max-height: 300px;">
    </header>
-   <div class="container-fluid">
+   <div class="container">
       {{ page.content1|safe }}
         <div class="mt-4">
             {{ page.clarity_call_html1|safe }}
@@ -23,20 +23,17 @@
             {{ page.clarity_call_html2|safe }}
             <a href="{{ page.clarity_call_link2 }}" class="btn btn-outline-primary m-2">{{ page.clarity_call_button2 }}</a>
         </div>
-    </div>
-    
-   
-    <div class="mt-4">
-      {{ page.content2|safe }}
+        
+        <div class="mt-4">
+          {{ page.content2|safe }}
+        </div>
   </div>
-  
-<!-- FAQs Section -->
-<section class="mb-5">
-  {{ page.faq_html|safe }}
-</section>
+    
+  <!-- FAQs Section -->
+  <section class="mb-5 container">
+    {{ page.faq_html|safe }}
+  </section>
 
-   
-   </div>
  </section>
 
 {% endblock content %}
