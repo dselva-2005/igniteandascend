@@ -35,7 +35,9 @@ class PagelinksAdmin(admin.ModelAdmin):
         'product5name', 'product5url',
         'product6name', 'product6url',
         'product7name', 'product7url',
-        'product8name', 'product8url',
+        'product8name', 'product8url',        
+        'product9name', 'product9url',
+
     )
 
 # Register the custom admin for ProductLinks
