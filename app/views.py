@@ -1,8 +1,48 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from . import models
+import razorpay
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+import json
+from django.conf import settings
 
+
+client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
 # Create your views here.
+
+@csrf_exempt
+def verify_payment(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+
+            razorpay_order_id = data.get("order_id")
+            razorpay_payment_id = data.get("payment_id")
+            razorpay_signature = data.get("signature")
+
+            params_dict = {
+                'razorpay_order_id': razorpay_order_id,
+                'razorpay_payment_id': razorpay_payment_id,
+                'razorpay_signature': razorpay_signature
+            }
+
+            # This raises SignatureVerificationError if the signature is invalid
+            client.utility.verify_payment_signature(params_dict)
+
+            # If verification passes, you can save the payment details here
+            return JsonResponse({"verified": True})
+
+        except razorpay.errors.SignatureVerificationError as e:
+            print("Signature verification failed:", str(e))
+            return JsonResponse({"verified": False}, status=400)
+        except Exception as e:
+            print("Unexpected error:", str(e))
+            return JsonResponse({"error": "Server error"}, status=500)
+
+    return JsonResponse({"error": "Invalid request"}, status=405)
+
+
 class Home(TemplateView):
     def get(self,request):
         page = models.HomePage.objects.first()
@@ -53,3 +93,4 @@ def advanced_lead_generation_package(request):
     title = "Advanced Lead Generation Pack"
     page = models.AdvancedLeadGenerationPackage.objects.first()
     return render(request,'advanced_lead_generation_package.html',{"title":title,"page":page})
+

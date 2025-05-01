@@ -4,6 +4,7 @@ from . import views
 app_name = 'app'
 
 urlpatterns = [
+    path('verify-payment/', views.verify_payment, name='verify_payment'),
     path("about/",views.about_us,name='about_us'),
     path("contact/",views.contact_us,name='contact_us'),
     path("workshops/",views.workshops,name='workshops'),

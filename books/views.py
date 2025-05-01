@@ -12,6 +12,17 @@ from django.contrib.auth.models import User
 from books.models import Book, Purchase
 from django.utils import timezone
 import mimetypes
+import requests
+
+def verify_payment_on_rzp(payment_id):
+    """Checks if a Razorpay payment is completed (captured)."""
+    auth = (settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
+    response = requests.get(f"https://api.razorpay.com/v1/payments/{payment_id}", auth=auth)
+
+    if response.status_code == 200:
+        data = response.json()
+        return data.get("status") == "captured"
+    return False
 
 @csrf_exempt
 @login_required
@@ -49,7 +60,7 @@ def verify_and_capture_payment(request):
 @login_required  # or use your custom paywall logic
 def serve_paywalled_media(request, path):
     # Paywall logic here (e.g., check if user paid for this content)
-    has_access = False  # Replace this with your own logic
+    has_access = True  # Replace this with your own logic
 
     if not has_access:
         return HttpResponseForbidden("Access Denied")
@@ -73,7 +84,7 @@ def create_razorpay_order(request):
             order = client.order.create({
                 "amount": amount,
                 "currency": "INR",
-                "payment_capture": 0
+                "payment_capture": 1
             })
 
             return JsonResponse(order)

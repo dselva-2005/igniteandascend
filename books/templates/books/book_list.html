@@ -52,8 +52,8 @@
     const CLIENT_ID = "{{ GOOGLE_CLIENT_ID }}";
     const APP_ID = "{{ GOOGLE_APP_ID }}";
     let FILE_URL = '';
-    const RAZORPAY_KEY = "{{ RAZORPAY_KEY_ID }}";  // Pass this from context in Django view
-
+    let RAZORPAY_PAYMENT_ID = '';
+    const RAZORPAY_KEY = "{{ RAZORPAY_KEY_ID }}";
 
     let accessToken = null;
     let pickerInited = false;
@@ -78,7 +78,7 @@
     function pickerCallback(data) {
         if (data.action === google.picker.Action.PICKED) {
             const folderId = data.docs[0].id;
-            uploadToDrive(folderId);
+            uploadToDrive(folderId, RAZORPAY_PAYMENT_ID);
         }
     }
 
@@ -104,9 +104,14 @@
         picker.setVisible(true);
     }
 
-    async function uploadToDrive(folderId) {
+    async function uploadToDrive(folderId, paymentId) {
         try {
-            const response = await fetch(FILE_URL);
+            const response = await fetch(FILE_URL + `?payment_id=${paymentId}`);
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error("Download blocked: " + errorText);
+            }
+
             const fileBlob = await response.blob();
 
             const metadata = {
@@ -134,9 +139,10 @@
             }
         } catch (err) {
             console.error(err);
-            alert('❌ Something went wrong.');
+            alert('❌ ' + err.message);
         }
     }
+
     async function createOrderAndPay(amount) {
         const response = await fetch("create-order/", {
             method: "POST",
@@ -157,8 +163,36 @@
             "description": "Ebook Purchase",
             "order_id": orderData.id,
             "handler": function (response){
-                tokenClient.requestAccessToken();
-                // TODO: Send payment info to backend to verify & unlock book
+                const paymentId = response.razorpay_payment_id;
+                const orderId = response.razorpay_order_id;
+                const signature = response.razorpay_signature || null;
+
+                RAZORPAY_PAYMENT_ID = paymentId;
+
+                fetch('/verify-payment/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}',
+                    },
+                    body: JSON.stringify({
+                        payment_id: paymentId,
+                        order_id: orderId,
+                        signature: signature
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.verified) {
+                        tokenClient.requestAccessToken();
+                    } else {
+                        alert("❌ Payment verification failed.");
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("❌ Server error during payment verification.");
+                });
             },
             "theme": {
                 "color": "#F37254"
@@ -186,6 +220,7 @@
                 showPicker();
             }
         });
+
         Array.from(document.getElementsByClassName('drive_download')).forEach((element)=>{
             element.addEventListener('click', () => {
                 const priceInRupees = parseFloat(element.dataset.bookPrice);
@@ -193,13 +228,11 @@
                 const absoluteURL = window.location.origin + relativePath;
                 FILE_URL = absoluteURL;
                 const amountInPaise = Math.round(priceInRupees * 100);
-                console.log(amountInPaise);
                 createOrderAndPay(amountInPaise);
             });
         });
 
         loadPickerApi();
-
     };
 </script>
 {% endblock content %}
