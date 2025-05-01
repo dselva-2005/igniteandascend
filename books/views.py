@@ -16,7 +16,7 @@ import requests
 
 def verify_payment_on_rzp(payment_id):
     """Checks if a Razorpay payment is completed (captured)."""
-    auth = (settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
+    auth = (settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET)
     response = requests.get(f"https://api.razorpay.com/v1/payments/{payment_id}", auth=auth)
 
     if response.status_code == 200:
