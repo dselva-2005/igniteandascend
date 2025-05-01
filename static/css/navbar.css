@@ -1,41 +1,45 @@
-.navbar-brand{
-    width: 9%;
+/* Navbar Brand */
+.navbar-brand {
+  width: 9%;
 }
 
-.navbar{
-    background-color: rgba(255, 255, 255, 0.95) !important;
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
-
+/* Navbar Link Styles */
 .nav-link {
-    margin: 1rem;
-    color: rgb(81, 0, 128);
-    font-weight: 400;
-  }
-
-@media (max-width:480px){
-    .navbar-brand{
-        width: 35%;
-    }
-    .nav-link{
-        text-align: center;
-    }
+  margin: 1rem;
+  color: rgb(81, 0, 128);
+  font-weight: 400;
 }
 
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .navbar-brand {
+      width: 35%;
+  }
+  .nav-link {
+      text-align: center;
+  }
+}
+
+/* Active Link Styles */
 .cactive {
-    background-color: #d881a2 !important;
-    color: white !important;
-    border-radius: 8%;
-  }
+  background-color: #d881a2 !important;
+  color: white !important;
+  border-radius: 8%;
+}
 
-  .nav-link:hover {
-    border: none;
-    background-color: #d881a2 !important;
-    color: white;
-    border-radius: 8%;
-  }
+/* Navbar Link Hover Styles */
+.nav-link:hover {
+  border: none;
+  background-color: #d881a2 !important;
+  color: white;
+  border-radius: 8%;
+}
 
- /* Initial navbar (before scroll) */
+/* Initial Navbar (before scroll) */
 .navbar {
   transition: transform 0.5s ease, opacity 0.5s ease;
   transform: translateY(0px);
@@ -43,7 +47,7 @@
   opacity: 1;
 }
 
-/* Sticky navbar (after scroll) */
+/* Sticky Navbar (after scroll) */
 .navbar.sticky {
   position: fixed;
   top: 0;
@@ -54,50 +58,50 @@
   animation: slideDown 1s ease-out forwards;
 }
 
-/* Define the slideDown animation */
+/* SlideDown Animation */
 @keyframes slideDown {
   0% {
-    transform: translateY(-100px);
-    opacity: 0;
+      transform: translateY(-100px);
+      opacity: 0;
   }
   60% {
-    transform: translateY(20px);
-    opacity: .4;
+      transform: translateY(20px);
+      opacity: .4;
   }
   80% {
-    transform: translateY(-10px);
-    opacity: .7;
+      transform: translateY(-10px);
+      opacity: .7;
   }
   100% {
-    transform: translateY(0);
-    opacity: 1;
+      transform: translateY(0);
+      opacity: 1;
   }
 }
 
-  /* Sticky navbar on scroll */
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
+/* Sticky Navbar on Scroll */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-  /* Open dropdown on hover */
-  .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
-    margin-top: 0;
-  }
+/* Open Dropdown on Hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+  margin-top: 0;
+}
 
-  /* Smooth fade-in animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: .95; transform: translateY(0); }
-  }
+/* Fade-In Animation for Dropdown */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: .95; transform: translateY(0); }
+}
 
-
-  .badge.bg-success {
-    font-size: 0.7rem;
-    padding: 0.2em 0.4em;
-    vertical-align: middle;
-  }
+/* Badge Styles */
+.badge.bg-success {
+  font-size: 0.7rem;
+  padding: 0.2em 0.4em;
+  vertical-align: middle;
+}

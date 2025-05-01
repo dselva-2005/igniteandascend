@@ -1,7 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
-
 <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -25,12 +24,11 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle {% if active == 'services' %}cactive{% endif %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle {% if active == 'services' %}cactive{% endif %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Our Services">
             Our Services
           </a>
           <ul class="dropdown-menu p-3 shadow" aria-labelledby="navbarDropdown">
             <div class="row">
-              
               <!-- Consecrated -->
               <div class="col-md-4">
                 <h6 class="dropdown-header text-danger fw-bold">{{ pagelinks.title1|safe }}</h6>
@@ -38,14 +36,13 @@
                 <a class="dropdown-item" href="{{ pagelinks.product2url }}">{{ pagelinks.product2name|safe }}</a>
                 <a class="dropdown-item" href="{{ pagelinks.product3url }}">{{ pagelinks.product3name|safe }}</a>
 
-
-                <h6 class="dropdown-header text-danger fw-bold"> {{ pagelinks.title3|safe }}</h6>
+                <h6 class="dropdown-header text-danger fw-bold">{{ pagelinks.title3|safe }}</h6>
                 <a class="dropdown-item" href="{{ pagelinks.product8url }}">{{ pagelinks.product8name|safe }}</a>
               </div>
         
               <!-- Temple -->
               <div class="col-md-4">
-                <h6 class="dropdown-header text-danger fw-bold"> {{ pagelinks.title2|safe }}</h6>
+                <h6 class="dropdown-header text-danger fw-bold">{{ pagelinks.title2|safe }}</h6>
                 <a class="dropdown-item" href="{{ pagelinks.product4url }}">{{ pagelinks.product4name|safe }}</a>
                 <a class="dropdown-item" href="{{ pagelinks.product5url }}">{{ pagelinks.product5name|safe }}</a>
                 <a class="dropdown-item" href="{{ pagelinks.product6url }}">{{ pagelinks.product6name|safe }}</a>
