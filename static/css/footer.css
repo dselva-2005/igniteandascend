@@ -1,0 +1,9 @@
+/* Footer Link Hover Effect */
+.footer-link:hover {
+    color: #a84848 !important;
+}
+
+/* Social Link Hover Effect */
+.fab:hover {
+    color: #a84848 !important;
+}

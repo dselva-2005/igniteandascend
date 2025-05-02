@@ -1,256 +1,217 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}{{ title }}{% endblock title %}
+
 {% block content %}
 {% include "navbar.html" with active='home' %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <!-- Main Content Section -->
-    <section id="main" class="bg-white">
-        <!-- Hero Section -->
-        <section class="hero-section text-white d-flex align-items-center justify-content-center">
-            <figure class="h-100 w-100 m-0">
-                <img src="{{ page.header_image.url }}" alt="Main banner promoting coaching and services" class="img-fluid h-100 w-100 object-fit-cover ">
-            </figure>
-        </section>        
 
-        <div class="container-fluid p-0">
-            <div id="certificateCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-                <div class="carousel-inner">
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active">
-                        <div class="row g-0 text-center flex-nowrap">
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image1.url }}" alt="..."
-                                        class="img-fluid rounded" alt="HCT Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image2.url }}" alt="..."
-                                        class="img-fluid rounded" alt="Meta Blueprint Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image3.url }}" alt="..."
-                                    class="img-fluid rounded" alt="Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image4.url }}" alt="..."
-                                        class="img-fluid rounded" alt="HCT Certificate">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-                    <!-- Slide 2 -->
-                    <div class="carousel-item">
-                        <div class="row g-0 text-center flex-nowrap">
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image7.url }}" alt="..."
-                                        class="img-fluid rounded" alt="HCT Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image8.url }}" alt="..."
-                                        class="img-fluid rounded" alt="Meta Blueprint Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image9.url }}" alt="..."
-                                    class="img-fluid rounded" alt="Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image5.url }}" alt="..."
-                                        class="img-fluid rounded" alt="Meta Blueprint Certificate">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
+<!-- Main Content Section -->
+<section id="main" class="bg-white">
 
-                    <!-- Slide 4 -->
-                    <div class="carousel-item">
-                        <div class="row g-0 text-center flex-nowrap">
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image10.url }}" alt="..."
-                                        class="img-fluid rounded" alt="HCT Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image11.url }}" alt="..."
-                                        class="img-fluid rounded" alt="Meta Blueprint Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image12.url }}" alt="..." 
-                                    class="img-fluid rounded" alt="Certificate">
-                                </figure>
-                            </div>
-                            <div class="col-3">
-                                <figure class="p-2">
-                                    <img src="{{ page.slide_image6.url }}" alt="..." 
-                                    class="img-fluid rounded" alt="Certificate">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div class="container">
-            <div class="row mb-4 d-flex flex-wrap">
-                <!-- Left Image Column -->
-                <div class="col-lg-6 col-12 d-flex p-1">
-                    <div class="w-100 h-100">
-                        <img src="{{ page.about_image.url }}" alt="..."
-                            class="img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                </div>
-
-                <!-- Right Text Column -->
-                <div class="col-lg-6 col-12 d-flex p-1">
-                    <div class="p-3">
-                        {{ page.about_content|safe }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container p-3">
-            {{ page.htmlContent|safe }}
-        </div>
-
-        <div class="container-fluid p-5">
-            
-            <!-- Services Section -->
-            <h1 class="text-center my-4">OUR SERVICES</h1>
-
-            <!-- Top 4 Square Cards -->
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4 justify-content-center">
-                
-                <div class="col d-flex justify-content-center">
-                    <div class=" w-100 text-center">
-                        <img src="{{ page.our_service_image1.url }}" alt="..."
-                        class="card-img-top" alt="...">
-                        <a href="/skill-to-trainer" class="btn btn-maroon mt-2">Learn more</a>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class=" w-100 text-center">
-                        <img src="{{ page.our_service_image2.url }}" alt="..."
-                        class="card-img-top" alt="...">
-                        <a href="/ultimate-trainer-launch-pack" class="btn btn-maroon mt-2">Learn more</a>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class=" w-100 text-center">
-                        <img src="{{ page.our_service_image3.url }}" alt="..."
-                        class="card-img-top" alt="...">
-                        <a href="/advanced-lead-generation-package" class="btn btn-maroon mt-2">Learn more</a>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class=" w-100 text-center">
-                        <img src="{{ page.our_service_image4.url }}" alt="..."
-                        class="card-img-top" alt="...">
-                        <a href="/fast-track-training" class="btn btn-maroon mt-2">Learn more</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom 2 Rectangle Cards -->
-            <div class="row row-cols-1 row-cols-lg-2 g-4 justify-content-center">
-                <div class="col d-flex justify-content-center">
-                    <div class=" w-100 text-center">
-                        <img src="{{ page.our_service_image5.url }}" alt="..."
-                        class="card-img-top" alt="...">
-                        <a href="/live-session" class="btn btn-maroon mt-2">Learn more</a>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class=" w-100 text-center">
-                        <img src="{{ page.our_service_image6.url }}" alt="..."
-                        class="card-img-top" alt="...">
-                        <a href="/beginner-to-pro" class="btn btn-maroon mt-2">Learn more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Client Reviews Section -->
-        <div class="my-5">
-            <h1 class="text-center">Our Clients Reviews</h1>
-            <div id="carouselClientImages" class="carousel slide p-2" data-bs-ride="carousel">
-                <div class="carousel-inner w-75 mx-auto">
-            
-                    <!-- Single Slide containing three images -->
-                    <div class="carousel-item active">
-                        <div class="d-flex justify-content-center gap-3">
-                            <img src="{{ page.review_image1.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 1">
-                            <img src="{{ page.review_image2.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 2">
-                            <img src="{{ page.review_image3.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 3">
-                        </div>
-                    </div>
-            
-                    <!-- Single Slide containing three images -->
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center gap-3">
-                            <img src="{{ page.review_image4.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 4">
-                            <img src="{{ page.review_image5.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 5">
-                            <img src="{{ page.review_image6.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 6">
-                        </div>
-                    </div>
-            
-                    <!-- Single Slide containing three images -->
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center gap-3">
-                            <img src="{{ page.review_image7.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 7">
-                            <img src="{{ page.review_image8.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 8">
-                            <img src="{{ page.review_image9.url }}" class="img-fluid" style="max-width: 30%;" alt="Client 9">
-                        </div>
-                    </div>
-            
-                </div>
-            
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselClientImages" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselClientImages" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            
-        </div>
-
+    <!-- Hero Section -->
+    <section class="hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
     </section>
-    <!-- Fixed Background Image -->
-    <img id="fixed-img" class="scroll-animate w-100 h-auto"
-        src="{{ page.background_image.url }}" alt="">
 
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize carousel with pause disabled
-            var myCarousel = new bootstrap.Carousel(document.getElementById('certificateCarousel'), {
-                interval: 2000,
-                pause: false,  // This disables pausing on hover
-                wrap: true     // Enable infinite looping
-            });
+    <!-- Certificate Carousel -->
+    <div class="container-fluid p-0">
+        <div id="certificateCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row g-0 text-center flex-nowrap">   
+                        <div class="col-3"><img src="{{ page.slide_image1.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image2.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image3.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image4.url }}" class="img-fluid rounded p-2" alt=""></div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row g-0 text-center flex-nowrap">
+                        <div class="col-3"><img src="{{ page.slide_image7.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image8.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image9.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image5.url }}" class="img-fluid rounded p-2" alt=""></div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="row g-0 text-center flex-nowrap">
+                        <div class="col-3"><img src="{{ page.slide_image10.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image11.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image12.url }}" class="img-fluid rounded p-2" alt=""></div>
+                        <div class="col-3"><img src="{{ page.slide_image6.url }}" class="img-fluid rounded p-2" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-3 mb-lg-0">
+                <img src="{{ page.about_image.url }}" class="img-fluid w-100 h-100 object-fit-cover" alt="About Image">
+            </div>
+            <div class="col-lg-6">
+                <div class="p-3">
+                    {{ page.about_content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Extra HTML Content -->
+    <div class="container p-3">
+        {{ page.htmlContent|safe }}
+    </div>
+
+    <!-- Services Section -->
+    <div class="container p-5">
+        <h1 class="text-center mb-4">OUR SERVICES</h1>
+
+        <!-- Top 4 Services -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4 justify-content-center">
+            <div class="col text-center">
+                <img src="{{ page.our_service_image1.url }}" class="card-img-top" alt="Service 1">
+                <a href="/about" class="btn btn-maroon rounded-pill w-75 mt-2 position-relative text-center">
+                    Learn more
+                    <span class="position-absolute d-flex align-items-center justify-content-center"
+                          style="right: 16px; top: 50%; transform: translateY(-50%);
+                                 width: 28px; height: 28px; background-color: #ffc107;
+                                 border-radius: 50%;">
+                        <i class="fas fa-caret-right text-white" style="font-size: 1rem;"></i>
+                    </span>
+                </a>   
+            </div>
+            <div class="col text-center">
+                <img src="{{ page.our_service_image2.url }}" class="card-img-top" alt="Service 2">
+                <a href="/about" class="btn btn-maroon rounded-pill w-75 mt-2 position-relative text-center">
+                    Learn more
+                    <span class="position-absolute d-flex align-items-center justify-content-center"
+                          style="right: 16px; top: 50%; transform: translateY(-50%);
+                                 width: 28px; height: 28px; background-color: #ffc107;
+                                 border-radius: 50%;">
+                        <i class="fas fa-caret-right text-white" style="font-size: 1rem;"></i>
+                    </span>
+                </a>   
+            </div>
+            <div class="col text-center">
+                <img src="{{ page.our_service_image3.url }}" class="card-img-top" alt="Service 3">
+                <a href="/about" class="btn btn-maroon rounded-pill w-75 mt-2 position-relative text-center">
+                    Learn more
+                    <span class="position-absolute d-flex align-items-center justify-content-center"
+                          style="right: 16px; top: 50%; transform: translateY(-50%);
+                                 width: 28px; height: 28px; background-color: #ffc107;
+                                 border-radius: 50%;">
+                        <i class="fas fa-caret-right text-white" style="font-size: 1rem;"></i>
+                    </span>
+                </a>   
+            </div>
+            <div class="col text-center">
+                <img src="{{ page.our_service_image4.url }}" class="card-img-top" alt="Service 4">
+                <a href="/about" class="btn btn-maroon rounded-pill w-75 mt-2 position-relative text-center">
+                    Learn more
+                    <span class="position-absolute d-flex align-items-center justify-content-center"
+                          style="right: 16px; top: 50%; transform: translateY(-50%);
+                                 width: 28px; height: 28px; background-color: #ffc107;
+                                 border-radius: 50%;">
+                        <i class="fas fa-caret-right text-white" style="font-size: 1rem;"></i>
+                    </span>
+                </a>   
+            </div>
+        </div>
+
+        <!-- Bottom 2 Services -->
+        <div class="row row-cols-1 row-cols-lg-2 g-4 justify-content-center">
+            <div class="col text-center">
+                <img src="{{ page.our_service_image5.url }}" class="card-img-top" alt="Service 5">
+                <a href="/about" class="btn btn-maroon rounded-pill w-75 mt-2 position-relative text-center">
+                    Learn more
+                    <span class="position-absolute d-flex align-items-center justify-content-center"
+                          style="right: 16px; top: 50%; transform: translateY(-50%);
+                                 width: 28px; height: 28px; background-color: #ffc107;
+                                 border-radius: 50%;">
+                        <i class="fas fa-caret-right text-white" style="font-size: 1rem;"></i>
+                    </span>
+                </a>   
+            </div>
+            <div class="col text-center">
+                <img src="{{ page.our_service_image6.url }}" class="card-img-top" alt="Service 6">
+                <a href="/about" class="btn btn-maroon rounded-pill w-75 mt-2 position-relative text-center">
+                    Learn more
+                    <span class="position-absolute d-flex align-items-center justify-content-center"
+                          style="right: 16px; top: 50%; transform: translateY(-50%);
+                                 width: 28px; height: 28px; background-color: #ffc107;
+                                 border-radius: 50%;">
+                        <i class="fas fa-caret-right text-white" style="font-size: 1rem;"></i>
+                    </span>
+                </a>                                       
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Reviews Section -->
+    <div class="">
+        <h1 class="text-center mb-4">Our Clients Reviews</h1>
+        <div id="carouselClientImages" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner w-75 mx-auto">
+                <div class="carousel-item active">
+                    <div class="d-flex justify-content-center gap-3">
+                        <img src="{{ page.review_image1.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 1">
+                        <img src="{{ page.review_image2.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 2">
+                        <img src="{{ page.review_image3.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 3">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center gap-3">
+                        <img src="{{ page.review_image4.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 4">
+                        <img src="{{ page.review_image5.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 5">
+                        <img src="{{ page.review_image6.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 6">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center gap-3">
+                        <img src="{{ page.review_image7.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 7">
+                        <img src="{{ page.review_image8.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 8">
+                        <img src="{{ page.review_image9.url }}" class="img-fluid" style="max-width: 30%;" alt="Review 9">
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselClientImages" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselClientImages" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+</section>
+
+<!-- Fixed Background Image -->
+<img id="fixed-img" class="scroll-animate w-100 h-auto" src="{{ page.background_image.url }}" alt="Background">
+
+<!-- JS Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new bootstrap.Carousel(document.getElementById('certificateCarousel'), {
+            interval: 2000,
+            pause: false,
+            wrap: true
         });
-    </script>
+    });
+</script>
 
 {% endblock content %}

@@ -6,7 +6,7 @@
 {% include "navbar.html" with active='contact_us' %}
 <section id="main">
     <header class="text-center mb-5 container-fluid">
-        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4" >
+        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover">
     </header>
     <div class="container py-5">
         {{ page.htmlcontent|safe }}
@@ -15,6 +15,14 @@
         <section class="py-5">
             <div class="">
                 {{ page.form_upper_html|safe }}
+                        <!-- Book Free 15-Minute Call Section -->
+            <section class="text-center mb-5">
+                {{ page.clarity_call|safe }}
+                <a href="{{ page.clarity_call_link }}" class="btn btn-maroon btn-lg">
+                    {{ page.clarity_call_button|safe }}
+                </a>
+            </section>
+
                 <form action="#" method="POST">
                     <div class="mb-3">
                         <input type="text" class="form-control bg-light rounded-3 border-0 py-3" name="name" placeholder="Full Name" required>
@@ -29,21 +37,14 @@
                         <textarea class="form-control bg-light rounded-3 border-0 py-3" name="message" rows="4" placeholder="Message / What do you need help with?" required></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-maroon px-4 py-2 rounded-pill">Submit</button>
+                        <button type="submit" class="btn btn-maroon px-4 py-2 w-25 rounded-pill">Submit</button>
                     </div>
                 </form>
                 {{ page.form_below_html|safe }}
             </div>
         </section>
         
-        <!-- Book Free 15-Minute Call Section -->
-        <section class="text-center">
-            <h3>Or</h3>
-            {{ page.clarity_call|safe }}
-            <a href="{{ page.clarity_call_link }}" class="btn btn-outline-maroon btn-lg">
-                {{ page.clarity_call_button|safe }}
-            </a>
-        </section>
+
     
     </div>
 </section>

@@ -184,7 +184,8 @@ class WorkshopsPage(models.Model):
     htmlcontent = HTMLField()
     created = models.DateTimeField(auto_now_add=True)  # corrected this
     updated = models.DateTimeField(auto_now=True)      # corrected this
-
+    button = models.TextField(null=True)
+    buttonurl =  models.URLField(null=True)
     class Meta:
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 

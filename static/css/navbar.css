@@ -1,107 +1,90 @@
-/* Navbar Brand */
+/* === Navbar Brand === */
 .navbar-brand {
-  width: 9%;
+  width:9%;
 }
 
-.navbar {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Navbar Link Styles */
-.nav-link {
-  margin: 1rem;
-  color: rgb(81, 0, 128);
-  font-weight: 400;
-}
-
-/* Mobile Adjustments */
 @media (max-width: 480px) {
   .navbar-brand {
-      width: 35%;
-  }
-  .nav-link {
-      text-align: center;
+    width: 30%;
   }
 }
 
-/* Active Link Styles */
-.cactive {
-  background-color: #d881a2 !important;
-  color: white !important;
-  border-radius: 8%;
-}
-
-/* Navbar Link Hover Styles */
-.nav-link:hover {
-  border: none;
-  background-color: #d881a2 !important;
-  color: white;
-  border-radius: 8%;
-}
-
-/* Initial Navbar (before scroll) */
+/* === Navbar Base === */
 .navbar {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  transform: translateY(0px);
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.3s ease;
   z-index: 1000;
-  opacity: 1;
+  opacity: .95;
 }
 
-/* Sticky Navbar (after scroll) */
+/* === Navbar Links === */
+.nav-link {
+  margin: 0 0.75rem;
+  color: #343a40;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  margin: 1rem 2rem;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #6b2c2c;
+  text-decoration: none;
+}
+
+/* === Active Link === */
+.cactive {
+  color: #6b2c2c !important;
+  border-bottom: 2px solid #b23a48;
+}
+
+/* === Sticky Navbar === */
 .navbar.sticky {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
-  background: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  animation: slideDown 1s ease-out forwards;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: slideDown 0.3s ease-out;
 }
 
-/* SlideDown Animation */
 @keyframes slideDown {
-  0% {
-      transform: translateY(-100px);
-      opacity: 0;
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-  60% {
-      transform: translateY(20px);
-      opacity: .4;
-  }
-  80% {
-      transform: translateY(-10px);
-      opacity: .7;
-  }
-  100% {
-      transform: translateY(0);
-      opacity: 1;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-/* Sticky Navbar on Scroll */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+/* === Dropdown on Hover (Desktop Only) === */
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0.5rem;
+    animation: fadeIn 0.2s ease-in-out;
+  }
 }
 
-/* Open Dropdown on Hover */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
-  margin-top: 0;
-}
-
-/* Fade-In Animation for Dropdown */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: .95; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Badge Styles */
+/* === Badge Style === */
 .badge.bg-success {
-  font-size: 0.7rem;
-  padding: 0.2em 0.4em;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
   vertical-align: middle;
+}
+
+/* === Mobile Centering === */
+@media (max-width: 480px) {
+  .nav-link {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
 }

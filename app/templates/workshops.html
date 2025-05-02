@@ -6,14 +6,15 @@
     {% include "navbar.html" with active='workshops' %}
     <section id="main" class="container-fluid">
         <header class="text-center">
-            <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid">
+            <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover">
           </header>
             <!-- Left Image Column -->
-          <div class="container">
+          <div class="container mb-5">
               <!-- Training Programs Section -->
               <section>
                     {{ page.htmlcontent|safe }}
               </section>
+              <a class="btn btn-maroon mt-2 mb-5" href="{{ page.buttonurl }}">{{ page.button }}</a>
           </div>
     </section>
 {% endblock content %}

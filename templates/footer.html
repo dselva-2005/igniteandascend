@@ -1,17 +1,18 @@
 {% load static %}
+<link rel="stylesheet" href="{% static "css/footer.css" %}">
 
 <!-- Footer Section -->
-<footer class="bg-black border-top p-4 text-white">
+<footer class="text-dark border-top p-4 bg-white">
     <div class="container py-5">
         <div class="row">
             <!-- Column 1 - Logo & Social -->
             <div class="col-12 col-md-3 mb-4 mb-md-0">
-                <img src="{% static 'images/newcompressed/footerlogo.png' %}" class="img-fluid w-75 mb-3" alt="Logo">
+                <img src="{% static 'images/Logo_croped.png' %}" class="img-fluid w-75 mb-3" alt="Logo">
                 <div class="social-icons">
-                    <a href="#" class="text-white me-3 social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
-                    <a href="#" class="text-white me-3 social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-white me-3 social-link" target="_blank" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>   
-                    <a href="#" class="text-white social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#" class="text-dark me-3 social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-dark me-3 social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-dark me-3 social-link" target="_blank" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>   
+                    <a href="#" class="text-dark social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
                 </div>
             </div>
 
@@ -19,12 +20,12 @@
             <div class="col-12 col-md-3 mb-4 mb-md-0">
                 <h5 class="fw-bold mb-3 text-maroon">Services Links</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{% url 'app:skill_to_trainer' %}" class="footer-link text-white">Skill to Trainer Start Pack</a></li>
-                    <li class="mb-2"><a href="{% url 'app:ultimage_trainer_launch_pack' %}" class="footer-link text-white">Ultimate Trainer Launch Package</a></li>
-                    <li class="mb-2"><a href="{% url 'app:advanced_lead_generation_package' %}" class="footer-link text-white">Advanced Lead Generation & Management Package</a></li>
-                    <li class="mb-2"><a href="{% url 'app:fast_track_training' %}" class="footer-link text-white">1-1 Fast Track Trainer Course</a></li>
-                    <li class="mb-2"><a href="{% url 'app:live_session' %}" class="footer-link text-white">Direct 1-1 Business Power Hour Exclusively for Bangalore</a></li>
-                    <li class="mb-2"><a href="{% url 'app:beginner_to_pro' %}" class="footer-link text-white">Newbie or Pro? We've Got You</a></li>
+                    <li class="mb-2"><a href="{% url 'app:skill_to_trainer' %}" class="footer-link text-dark">Skill to Trainer Start Pack</a></li>
+                    <li class="mb-2"><a href="{% url 'app:ultimage_trainer_launch_pack' %}" class="footer-link text-dark">Ultimate Trainer Launch Package</a></li>
+                    <li class="mb-2"><a href="{% url 'app:advanced_lead_generation_package' %}" class="footer-link text-dark">Advanced Lead Generation & Management Package</a></li>
+                    <li class="mb-2"><a href="{% url 'app:fast_track_training' %}" class="footer-link text-dark">1-1 Fast Track Trainer Course</a></li>
+                    <li class="mb-2"><a href="{% url 'app:live_session' %}" class="footer-link text-dark">Direct 1-1 Business Power Hour Exclusively for Bangalore</a></li>
+                    <li class="mb-2"><a href="{% url 'app:beginner_to_pro' %}" class="footer-link text-dark">Newbie or Pro? We've Got You</a></li>
                 </ul>
             </div>
 
@@ -32,20 +33,20 @@
             <div class="col-12 col-md-3 mb-4 mb-md-0">
                 <h5 class="fw-bold mb-3 text-maroon">Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{% url 'app:about_us' %}" class="footer-link text-white">About Us</a></li>
-                    <li class="mb-2"><a href="{% url 'books:book-list' %}" class="footer-link text-white">Ebooks</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link text-white">Blogs</a></li>
-                    <li class="mb-2"><a href="{% url 'app:workshops' %}" class="footer-link text-white">Workshops</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link text-white">Privacy Policy</a></li>
+                    <li class="mb-2"><a href="{% url 'app:about_us' %}" class="footer-link text-dark">About Us</a></li>
+                    <li class="mb-2"><a href="{% url 'books:book-list' %}" class="footer-link text-dark">Ebooks</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link text-dark">Blogs</a></li>
+                    <li class="mb-2"><a href="{% url 'app:workshops' %}" class="footer-link text-dark">Workshops</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link text-dark">Privacy Policy</a></li>
                 </ul>
             </div>
 
             <!-- Column 4 - Contact -->
             <div class="col-12 col-md-3">
                 <h5 class="fw-bold mb-3 text-maroon">Contact Us</h5>
-                <ul class="list-unstyled text-white">
-                    <li class="mb-2">Email: <a href="mailto:info.igniteandascend@gmail.com" class="footer-link text-white">info.igniteandascend@gmail.com</a></li>
-                    <li class="mb-2">Phone: <a href="tel:+917899790978" class="footer-link text-white">+91 7899790978</a></li>
+                <ul class="list-unstyled text-dark">
+                    <li class="mb-2">Email: <a href="mailto:info.igniteandascend@gmail.com" class="footer-link text-dark">info.igniteandascend@gmail.com</a></li>
+                    <li class="mb-2">Phone: <a href="tel:+917899790978" class="footer-link text-dark">+91 7899790978</a></li>
                     <li class="mb-2"><br>Bangalore, India</li>
                 </ul>
             </div>
@@ -56,7 +57,7 @@
             <hr class="border-secondary">
             <div class="col-12">
                 <h5 class="fw-bold mb-3 text-maroon">Our Services</h5>
-                <p class="text-white">
+                <p class="text-dark">
                     Build your startup | How to start your online business | Coaching | Training | Webinar | SEO course | Instagram course | Meta ads course | Google ads | Website design and development | Canva course | Digital marketing course | Advertise on Google | Lead generation | Meta ads | Small business | Entrepreneur | Business plans | Social media content creator | Social media strategy | Online business from home | Communication coach | Startup ideas | Certified life coach | Website development services | Business consultant | Small business consultant | Social media specialist | Training and development | YouTube | Instagram marketing service | Consulting company | Social media posting | Facebook marketing strategy | Business services | Start-up business ideas | Home business | Building website for business | Social media content | Business for women entrepreneurs | Start-up ideas | LinkedIn page optimization | Instagram page optimization | Social media optimization | Digital and social media marketing | Creating an e-commerce website | Shopify | WordPress
                 </p>
             </div>
@@ -65,7 +66,7 @@
         <!-- Copyright -->
         <div class="row mt-4">
             <div class="col-12 text-center">
-                <p class="text-white mb-0">&copy; 2025 Your Company Name. All rights reserved.</p>
+                <p class="text-dark mb-0">&copy; 2025 Your Company Name. All rights reserved.</p>
             </div>
         </div>
     </div>

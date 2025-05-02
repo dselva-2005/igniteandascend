@@ -6,8 +6,8 @@
 
 <section id="main"  class="container-fluid">
     <header class="text-center mb-5">
+        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover mb-5">
         {{ page.header_html|safe }}
-        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4">
     </header>
 
     <div class="container">
@@ -16,9 +16,6 @@
         <!-- Free 15-Minute Clarity Call Section -->
         <section class="mb-5">
             {{ page.clarity_call_html1|safe }}
-            <a href="{{ page.clarity_call_link1 }}" class="btn btn-maroon btn-lg">
-                {{ page.clarity_call_button1 }}
-            </a>
         </section>
 
         <!-- Who Needs This Section -->

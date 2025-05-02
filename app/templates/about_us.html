@@ -10,46 +10,71 @@
         </section>
         <div class="container-fluid p-3">
             <!-- Section 1: Sujatha Sangeeth -->
-            <div class="row mt-3 mb-4 d-flex flex-wrap" style="min-height: 65vh;">
-                <div class="col-lg-6 col-12 d-flex p-1">
-                    <div class="w-100 h-100">
-                        <img src="{{ page.image_of_person1.url }}" alt="Sujatha Sangeeth" class="img-fluid w-100 h-100 object-fit-cover" style="border-radius: 30px;">
+            <div class="position-relative overflow-hidden">
+                <!-- Top Gradient -->
+                <div style="height: 40px; background: linear-gradient(to bottom, white, #fff7ed); position: absolute; top: -40px; left: 0; right: 0; z-index: 1;"></div>
+
+                <div class="row mt-4 mb-4 d-flex flex-wrap position-relative" style="min-height: 65vh; background-color: #fff7ed; z-index: 2;">
+                    <div class="col-lg-6 col-12 d-flex p-3">
+                        <div class="w-100 h-100">
+                            <img src="{{ page.image_of_person1.url }}" alt="Sujatha Sangeeth" class="img-fluid w-100 h-100 object-fit-cover" style="border-radius: 30px;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex p-1">
+                        <div class="d-flex flex-column justify-content-center align-items-start w-100 h-100 p-4">
+                            {{ page.html_content_for_person1|safe }}
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 d-flex p-1">
-                    <div class="d-flex flex-column justify-content-center align-items-start w-100 h-100 p-2">
-                        {{ page.html_content_for_person1| safe }}
-                    </div>
-                </div>
+
+                <!-- Bottom Gradient -->
+                <div style="height: 40px; background: linear-gradient(to top, white, #fff7ed); position: absolute; bottom: -40px; left: 0; right: 0; z-index: 1;"></div>
             </div>
-            
+
             <!-- Section 2: Sivashankari -->
-            <div class="row mt-4 mb-4 d-flex flex-wrap" style="min-height: 65vh;">
-                <div class="col-lg-6 col-12 d-flex p-1 order-lg-2 order-1">
-                    <div class="w-100 h-100">
-                        <img src="{{ page.image_of_person2.url }}" alt="Sivashankari" class="img-fluid w-100 h-100 object-fit-cover" style="border-radius: 30px;">
+            <div class="position-relative overflow-hidden">
+                <!-- Top Gradient -->
+                <div style="height: 40px; background: linear-gradient(to bottom, white, #fff7ed); position: absolute; top: -40px; left: 0; right: 0; z-index: 1;"></div>
+
+                <div class="row mt-4 mb-4 d-flex flex-wrap position-relative" style="min-height: 65vh; background-color: #fff7ed; z-index: 2;">
+                    <div class="col-lg-6 col-12 d-flex p-3 order-lg-2 order-1">
+                        <div class="w-100 h-100">
+                            <img src="{{ page.image_of_person2.url }}" alt="Sivashankari" class="img-fluid w-100 h-100 object-fit-cover" style="border-radius: 30px;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex p-1 order-lg-1 order-2">
+                        <div class="d-flex flex-column justify-content-center align-items-start w-100 h-100 p-4">
+                            {{ page.html_content_for_person2|safe }}
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 d-flex p-1 order-lg-1 order-2">
-                    <div class="d-flex flex-column justify-content-center align-items-start w-100 h-100 p-2">
-                        {{ page.html_content_for_person2| safe }}
-                    </div>
-                </div>
+
+                <!-- Bottom Gradient -->
+                <div style="height: 40px; background: linear-gradient(to top, white, #fff7ed); position: absolute; bottom: -40px; left: 0; right: 0; z-index: 1;"></div>
             </div>
-            
+
             <!-- Section 3: Padma Vinothini -->
-            <div class="row mt-4 mb-4 d-flex flex-wrap" style="min-height: 65vh;">
-                <div class="col-lg-6 col-12 d-flex p-1">
-                    <div class="w-100 h-100">
-                        <img src="{{ page.image_of_person3.url }}" alt="Padma Vinothini" class="img-fluid w-100 h-100 object-fit-cover" style="border-radius: 30px;">
+            <div class="position-relative overflow-hidden">
+                <!-- Top Gradient -->
+                <div style="height: 40px; background: linear-gradient(to bottom, white, #fff7ed); position: absolute; top: -40px; left: 0; right: 0; z-index: 1;"></div>
+
+                <div class="row mt-4 mb-4 d-flex flex-wrap position-relative" style="min-height: 65vh; background-color: #fff7ed; z-index: 2;">
+                    <div class="col-lg-6 col-12 d-flex p-3">
+                        <div class="w-100 h-100">
+                            <img src="{{ page.image_of_person3.url }}" alt="Padma Vinothini" class="img-fluid w-100 h-100 object-fit-cover" style="border-radius: 30px;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex p-1">
+                        <div class="d-flex flex-column justify-content-center align-items-start w-100 h-100 p-4">
+                            {{ page.html_content_for_person3|safe }}
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 d-flex p-1">
-                    <div class="d-flex flex-column justify-content-center align-items-start w-100 h-100 p-2">
-                        {{ page.html_content_for_person3| safe }}
-                    </div>
-                </div>
+
+                <!-- Bottom Gradient -->
+                <div style="height: 40px; background: linear-gradient(to top, white, #fff7ed); position: absolute; bottom: -40px; left: 0; right: 0; z-index: 1;"></div>
             </div>
+
         </div>
     </section>
 
