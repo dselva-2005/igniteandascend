@@ -1,7 +1,7 @@
 /* === Base === */
 body {
     background-color: #ffffff;
-    color: #212529;
+    color: #000000;
     font-family:'Times New Roman', Times, serif;
     font-size: 1.2rem;
     line-height: 1.6;
@@ -11,7 +11,7 @@ body {
 :root {
     --maroon: #834343;
     --maroon-hover: #da4b5e;
-    --text-dark: #212529;
+    --text-dark: #000000;
 }
 
 .text-maroon {
@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5 {
   }
   
   .text-slate {
-    color: #5A5A5A;
+    color: #000000;
   }
   
   .highlight {
@@ -186,5 +186,7 @@ h1, h2, h3, h4, h5 {
     font-weight: 600;
   }
   
-
+.text-muted{
+    color:black !important;
+}
   

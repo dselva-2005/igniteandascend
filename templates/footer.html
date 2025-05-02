@@ -1,72 +1,71 @@
 {% load static %}
-<link rel="stylesheet" href="{% static "css/footer.css" %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
-<!-- Footer Section -->
-<footer class="text-dark border-top p-4 bg-white">
-    <div class="container py-5">
-        <div class="row">
-            <!-- Column 1 - Logo & Social -->
-            <div class="col-12 col-md-3 mb-4 mb-md-0">
-                <img src="{% static 'images/Logo_croped.png' %}" class="img-fluid w-75 mb-3" alt="Logo">
-                <div class="social-icons">
-                    <a href="#" class="text-dark me-3 social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
-                    <a href="#" class="text-dark me-3 social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-dark me-3 social-link" target="_blank" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>   
-                    <a href="#" class="text-dark social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+<footer class="bg-dark text-light pt-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Logo & Social -->
+            <div class="col-md-3">
+                <img src="{% static 'images/newcompressed/footerlogo.png' %}" class="img-fluid w-75 mb-3" alt="Logo">
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light social-link" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-light social-link" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-light social-link" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
+                    <a href="#" class="text-light social-link" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
                 </div>
             </div>
 
-            <!-- Column 2 - Important Links -->
-            <div class="col-12 col-md-3 mb-4 mb-md-0">
-                <h5 class="fw-bold mb-3 text-maroon">Services Links</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{% url 'app:skill_to_trainer' %}" class="footer-link text-dark">Skill to Trainer Start Pack</a></li>
-                    <li class="mb-2"><a href="{% url 'app:ultimage_trainer_launch_pack' %}" class="footer-link text-dark">Ultimate Trainer Launch Package</a></li>
-                    <li class="mb-2"><a href="{% url 'app:advanced_lead_generation_package' %}" class="footer-link text-dark">Advanced Lead Generation & Management Package</a></li>
-                    <li class="mb-2"><a href="{% url 'app:fast_track_training' %}" class="footer-link text-dark">1-1 Fast Track Trainer Course</a></li>
-                    <li class="mb-2"><a href="{% url 'app:live_session' %}" class="footer-link text-dark">Direct 1-1 Business Power Hour Exclusively for Bangalore</a></li>
-                    <li class="mb-2"><a href="{% url 'app:beginner_to_pro' %}" class="footer-link text-dark">Newbie or Pro? We've Got You</a></li>
+            <!-- Services Links -->
+            <div class="col-md-3">
+                <h6 class="fw-semibold mb-3 text-maroon">Services</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="{% url 'app:skill_to_trainer' %}" class="text-decoration-none text-light footer-link">Skill to Trainer Start Pack</a></li>
+                    <li><a href="{% url 'app:ultimage_trainer_launch_pack' %}" class="text-decoration-none text-light footer-link">Ultimate Trainer Launch Package</a></li>
+                    <li><a href="{% url 'app:advanced_lead_generation_package' %}" class="text-decoration-none text-light footer-link">Advanced Lead Generation Package</a></li>
+                    <li><a href="{% url 'app:fast_track_training' %}" class="text-decoration-none text-light footer-link">1-1 Fast Track Trainer Course</a></li>
+                    <li><a href="{% url 'app:live_session' %}" class="text-decoration-none text-light footer-link">Business Power Hour (Bangalore)</a></li>
+                    <li><a href="{% url 'app:beginner_to_pro' %}" class="text-decoration-none text-light footer-link">Newbie or Pro? We've Got You</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3 - Quick Links -->
-            <div class="col-12 col-md-3 mb-4 mb-md-0">
-                <h5 class="fw-bold mb-3 text-maroon">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{% url 'app:about_us' %}" class="footer-link text-dark">About Us</a></li>
-                    <li class="mb-2"><a href="{% url 'books:book-list' %}" class="footer-link text-dark">Ebooks</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link text-dark">Blogs</a></li>
-                    <li class="mb-2"><a href="{% url 'app:workshops' %}" class="footer-link text-dark">Workshops</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link text-dark">Privacy Policy</a></li>
+            <!-- Quick Links -->
+            <div class="col-md-3">
+                <h6 class="fw-semibold mb-3 text-maroon">Quick Links</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="{% url 'app:about_us' %}" class="text-decoration-none text-light footer-link">About Us</a></li>
+                    <li><a href="{% url 'books:book-list' %}" class="text-decoration-none text-light footer-link">Ebooks</a></li>
+                    <li><a href="#" class="text-decoration-none text-light footer-link">Blogs</a></li>
+                    <li><a href="{% url 'app:workshops' %}" class="text-decoration-none text-light footer-link">Workshops</a></li>
+                    <li><a href="#" class="text-decoration-none text-light footer-link">Privacy Policy</a></li>
                 </ul>
             </div>
 
-            <!-- Column 4 - Contact -->
-            <div class="col-12 col-md-3">
-                <h5 class="fw-bold mb-3 text-maroon">Contact Us</h5>
-                <ul class="list-unstyled text-dark">
-                    <li class="mb-2">Email: <a href="mailto:info.igniteandascend@gmail.com" class="footer-link text-dark">info.igniteandascend@gmail.com</a></li>
-                    <li class="mb-2">Phone: <a href="tel:+917899790978" class="footer-link text-dark">+91 7899790978</a></li>
-                    <li class="mb-2"><br>Bangalore, India</li>
+            <!-- Contact Info -->
+            <div class="col-md-3">
+                <h6 class="fw-semibold mb-3 text-maroon">Contact</h6>
+                <ul class="list-unstyled small">
+                    <li>Email: <a href="mailto:info.igniteandascend@gmail.com" class="text-decoration-none text-light">info.igniteandascend@gmail.com</a></li>
+                    <li>Phone: <a href="tel:+917899790978" class="text-decoration-none text-light">+91 7899790978</a></li>
+                    <li>Bangalore, India</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Our Services Section -->
-        <div class="row mt-5">
-            <hr class="border-secondary">
+        <hr class="border-secondary mt-5">
+
+        <!-- SEO Service Description -->
+        <div class="row">
             <div class="col-12">
-                <h5 class="fw-bold mb-3 text-maroon">Our Services</h5>
-                <p class="text-dark">
+                <h6 class="fw-semibold text-maroon mb-3">Our Services</h6>
+                <p class="small text-light">
                     Build your startup | How to start your online business | Coaching | Training | Webinar | SEO course | Instagram course | Meta ads course | Google ads | Website design and development | Canva course | Digital marketing course | Advertise on Google | Lead generation | Meta ads | Small business | Entrepreneur | Business plans | Social media content creator | Social media strategy | Online business from home | Communication coach | Startup ideas | Certified life coach | Website development services | Business consultant | Small business consultant | Social media specialist | Training and development | YouTube | Instagram marketing service | Consulting company | Social media posting | Facebook marketing strategy | Business services | Start-up business ideas | Home business | Building website for business | Social media content | Business for women entrepreneurs | Start-up ideas | LinkedIn page optimization | Instagram page optimization | Social media optimization | Digital and social media marketing | Creating an e-commerce website | Shopify | WordPress
                 </p>
             </div>
         </div>
 
-        <!-- Copyright -->
         <div class="row mt-4">
-            <div class="col-12 text-center">
-                <p class="text-dark mb-0">&copy; 2025 Your Company Name. All rights reserved.</p>
+            <div class="col text-center">
+                <p class="small text-muted mb-0">&copy; 2025 Your Company Name. All rights reserved.</p>
             </div>
         </div>
     </div>
