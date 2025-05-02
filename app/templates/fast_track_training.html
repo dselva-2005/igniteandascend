@@ -18,20 +18,21 @@
         </div>
           
     <div class="container">
-        <div class="d-flex justify-content-center gap-3 mb-4">
-          <button class="btn btn-outline-maroon btn-maroon" onclick="showSection('section1')">
+      <div class="d-flex justify-content-center gap-1 mb-4">
+        <button class="btn btn-outline-maroon btn-active" onclick="showSection('section1')">
           {{ page.nich_navigator_header1|safe }}
-          </button>
-          <button class="btn btn-outline-maroon" onclick="showSection('section2')">
+        </button>
+        <button class="btn btn-outline-maroon" onclick="showSection('section2')">
           {{ page.meta_google_header1|safe }}
-          </button>
-          <button class="btn btn-outline-maroon" onclick="showSection('section3')">
+        </button>
+        <button class="btn btn-outline-maroon" onclick="showSection('section3')">
           {{ page.instagram_seo_header1|safe }}
-          </button>
-          <button class="btn btn-outline-maroon" onclick="showSection('section4')">
+        </button>
+        <button class="btn btn-outline-maroon" onclick="showSection('section4')">
           {{ page.canva_header1|safe }}
-          </button>
-        </div>
+        </button>
+      </div>
+      
     </div>
  
    <!-- Section Container -->
@@ -66,8 +67,8 @@
           <a href="{{ page.meta_google_link1 }}" target="_blank" class="btn btn-maroon btn-lg">
             {{ page.meta_google_button1 }}
           </a>
-          <a href="{{ page.meta_google_button2 }}" target="_blank" class="btn btn-outline-secondary btn-lg">
-            {{ page.meta_google_link2 }}
+          <a href="{{ page.meta_google_link2 }}" target="_blank" class="btn btn-outline-secondary btn-lg">
+            {{ page.meta_google_button2 }}
           </a>
         </div>
         {{ page.meta_google_htmlcontent2|safe }}
@@ -122,10 +123,10 @@
 
     // Remove 'active' class from all buttons
     const buttons = document.querySelectorAll('.btn-outline-maroon');
-    buttons.forEach(btn => btn.classList.remove('btn-maroon'));
+    buttons.forEach(btn => btn.classList.remove('btn-active'));
 
     // Add 'active' to the clicked button
-    event.currentTarget.classList.add('btn-maroon');
+    event.currentTarget.classList.add('btn-active');
   }
 </script>
 
