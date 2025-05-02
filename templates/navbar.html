@@ -16,15 +16,15 @@
       <ul class="navbar-nav mx-auto">
         
         <li class="nav-item">
-          <a class="nav-link {% if active == 'home' %}cactive{% endif %}" href="/">Home</a>
+          <a class="nav-link bold {% if active == 'home' %}cactive{% endif %}" href="/">Home</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if active == 'about_us' %}cactive{% endif %}" href="/about">About Us</a>
+          <a class="nav-link bold {% if active == 'about_us' %}cactive{% endif %}" href="/about">About Us</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle {% if active == 'services' %}cactive{% endif %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link bold dropdown-toggle {% if active == 'services' %}cactive{% endif %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Our Services
           </a>
           <ul class="dropdown-menu shadow p-3" aria-labelledby="navbarDropdown" style="min-width: 300px;">
@@ -37,7 +37,6 @@
           
                 <h6 class="dropdown-header mt-3">{{ pagelinks.title3|safe }}</h6>
                 <a class="dropdown-item" href="{{ pagelinks.product8url }}">{{ pagelinks.product8name|safe }}</a>
-                <a class="dropdown-item" href="{{ pagelinks.product9url }}">{{ pagelinks.product9name|safe }}</a>
               </div>
           
               <div style="min-width: 200px;">
@@ -46,6 +45,9 @@
                 <a class="dropdown-item" href="{{ pagelinks.product5url }}">{{ pagelinks.product5name|safe }}</a>
                 <a class="dropdown-item" href="{{ pagelinks.product6url }}">{{ pagelinks.product6name|safe }}</a>
                 <a class="dropdown-item" href="{{ pagelinks.product7url }}">{{ pagelinks.product7name|safe }}</a>
+
+                <h6 class="dropdown-header mt-3">{{ pagelinks.title4|safe }}</h6>
+                <a class="dropdown-item" href="{{ pagelinks.product9url }}">{{ pagelinks.product9name|safe }}</a>
               </div>
             </div>
           </ul>
@@ -53,19 +55,19 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link {% if active == 'ebooks' %}cactive{% endif %}" href="{% url 'books:book-list' %}">Ebooks</a>
+          <a class="nav-link bold {% if active == 'ebooks' %}cactive{% endif %}" href="{% url 'books:book-list' %}">Ebooks</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if active == 'blogs' %}cactive{% endif %}" href="#">Blogs</a>
+          <a class="nav-link bold {% if active == 'blogs' %}cactive{% endif %}" href="#">Blogs</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if active == 'workshops' %}cactive{% endif %}" href="/workshops">Workshops</a>
+          <a class="nav-link bold {% if active == 'workshops' %}cactive{% endif %}" href="/workshops">Workshops</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if active == 'contact_us' %}cactive{% endif %}" href="/contact">Contact Us</a>
+          <a class="nav-link bold {% if active == 'contact_us' %}cactive{% endif %}" href="/contact">Contact Us</a>
         </li>
       </ul>
     </div>

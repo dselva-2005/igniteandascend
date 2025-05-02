@@ -6,6 +6,7 @@ from tinymce.models import HTMLField  # if using TinyMCE's HTMLField
 class HomePage(models.Model):
 
     header_image = models.ImageField()  # add upload_to for better file management
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     slide_image1 = models.ImageField()
     slide_image2 = models.ImageField()
     slide_image3 = models.ImageField()
@@ -274,6 +275,7 @@ class Pagelinks(models.Model):
     title1 = HTMLField()
     title2 = HTMLField()
     title3 = HTMLField()
+    title4 = HTMLField(null=True)
 
     product1name = HTMLField()
     product1url = models.URLField(max_length=512)

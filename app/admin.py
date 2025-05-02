@@ -14,7 +14,7 @@ admin.site.register(models.AdvancedLeadGenerationPackage)
 
 class PagelinksAdmin(admin.ModelAdmin):
     # Define which fields you want to display
-    list_display = ('title1','title2','title3',
+    list_display = ('title1','title2','title3','title4',
         'product1name', 'product1url',
         'product2name', 'product2url',
         'product3name', 'product3url',
@@ -27,7 +27,7 @@ class PagelinksAdmin(admin.ModelAdmin):
     )
     
     # Limit the number of fields in the form view
-    fields = ('title1','title2','title3',
+    fields = ('title1','title2','title3','title4',
         'product1name', 'product1url',
         'product2name', 'product2url',
         'product3name', 'product3url',

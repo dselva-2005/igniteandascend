@@ -12,15 +12,21 @@
 <section id="main" class="bg-white">
 
     <!-- Hero Section -->
-    <section class="hero-section text-white d-flex align-items-center justify-content-center">
+    <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
         <figure class="h-100 w-100 m-0">
             <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
+    
+    <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{{ page.header_image_mobile.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
         </figure>
     </section>
 
     <!-- Certificate Carousel -->
     <div class="container-fluid p-0">
-        <div id="certificateCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div id="certificateCarousel" class="carousel slide strip" data-bs-ride="carousel" data-bs-interval="2000">
             <div class="carousel-inner">
                 <!-- Slide 1 -->
                 <div class="carousel-item active">
