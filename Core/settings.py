@@ -26,13 +26,13 @@ load_dotenv()  # this loads the .env file into os.environ
 SECRET_KEY = os.getenv("DJANGO_SECRETS")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-DEBUG = False
+# DEBUG = False
 
-ALLOWED_HOSTS = ['igniteandascend.com','www.igniteandascend.com']
+# ALLOWED_HOSTS = ['igniteandascend.com','www.igniteandascend.com']
 
 
 # Application definition
@@ -117,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'  # or your local timezone
 
 USE_I18N = True
 
