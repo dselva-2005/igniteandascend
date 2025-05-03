@@ -4,25 +4,38 @@
 {% block content %}
 {% include "navbar.html" %}
 
-<header class="text-center mb-5">
-    <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover mb-5">
+    <!-- Hero Section -->
+    <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
+    
+    <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{% static "images/newbanners/6.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
+<header class="container text-center mb-2">
     {{ page.header_html|safe }}
 </header>
-<section id="main"  class="container-fluid">
+<section id="main">
 
-    <div class="container">
+    <div class="container px-4">
         {{ page.htmlcontent|safe }}
         
         <!-- Free 15-Minute Clarity Call Section -->
-        <section class="mb-5">
+        <section class="mb-1 text-center">
             {{ page.clarity_call_html1|safe }}
         </section>
 
-        <!-- Who Needs This Section -->
-         {{ page.htmlcontent2|safe }}
+        <div  class="container px-3" >
+            <!-- Who Needs This Section -->
+            {{ page.htmlcontent2|safe }}
+        </div>
 
         <!-- FAQs Section -->
-        <section class="mb-5">
+        <section class="mb-1">
             {{ page.faq_html|safe }}
         </section>
     </div>

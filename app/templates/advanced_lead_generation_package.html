@@ -5,20 +5,28 @@
 {% include "navbar.html" %}
 
 <section id="main">
-  <header class="text-center">
-    <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover"">
-  </header>
+    <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
+      <figure class="h-100 w-100 m-0">
+          <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+      </figure>
+  </section>
 
-  <section class="container py-5 text-center bg-white text-dark">
-    <div class="container-fluid">
+  <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+      <figure class="h-100 w-100 m-0">
+          <img src="{% static "images/newbanners/3.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+      </figure>
+  </section>
+
+  <section class="py-1 bg-white text-dark">
+    <div class="container">
       {{ page.header_html|safe }}
     </div>
   </section>
 
   <section class="py-3">
     <div class="container">
-      {{ apge.htmlcontent| safe }}
-      <div class="mt-5 text-center">
+      {{ page.htmlcontent| safe }}
+      <div class="my-5 text-center">
         {{ page.clarity_call_html1|safe }}
         <a href="{{ page.clarity_call_link1|safe }}" class="btn btn-maroon mb-2">{{ page.clarity_call_button1|safe }}</a>
       </div>

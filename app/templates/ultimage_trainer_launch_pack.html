@@ -7,12 +7,22 @@
 <link rel="stylesheet" href="{% static "css/ultimate_trainer_launch_pack.css" %}">
 
 <section id="main">
-  <header class="">
-    <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover">
-  </header>
+
+      <!-- Hero Section -->
+      <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
+    
+    <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{% static "images/newbanners/2.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
   <div class="container">
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="mt-5">
       {{ page.header_html|safe }}
     </section>
     
@@ -20,10 +30,10 @@
     
     <!-- CTA Section -->
     <section class="">
-      <div class="container">
+      <div class="container text-center">
         {{ page.clarity_call_html1|safe }}
-        <div class="my-4">
-          <a href="{{ page.clarity_call_link1 }}" class="btn btn-maroon btn-lg me-3">
+        <div class="my-4 text-center">
+          <a href="{{ page.clarity_call_link1 }}" class="btn btn-maroon  me-3">
             {{ page.clarity_call_button1 }}
           </a>
         </div>

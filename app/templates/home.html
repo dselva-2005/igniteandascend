@@ -20,7 +20,7 @@
     
     <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
         <figure class="h-100 w-100 m-0">
-            <img src="{{ page.header_image_mobile.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+            <img src="{% static "images/newbanners/1.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
         </figure>
     </section>
 
@@ -68,7 +68,7 @@
                 <img src="{{ page.about_image.url }}" class="img-fluid w-100 h-100 object-fit-cover" alt="About Image">
             </div>
             <div class="col-lg-6">
-                <div class="p-3">
+                <div class="">
                     {{ page.about_content|safe }}
                 </div>
             </div>
@@ -76,13 +76,13 @@
     </div>
 
     <!-- Extra HTML Content -->
-    <div class="container p-3">
+    <div class="container p-5">
         {{ page.htmlContent|safe }}
     </div>
 
     <!-- Services Section -->
-    <div class="container p-5">
-        <h1 class="text-center mb-4">OUR SERVICES</h1>
+    <div class="container p-4">
+        <h1 class="text-center mt-4">OUR SERVICES</h1>
 
         <!-- Top 4 Services -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4 justify-content-center">

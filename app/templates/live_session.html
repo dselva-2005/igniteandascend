@@ -6,22 +6,28 @@
 {% include "navbar.html" %}
 <link rel="stylesheet" href="{% static "css/live_session.css" %}">
 <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="large-view  text-white d-flex align-items-center justify-content-center">
+      <figure class="h-100 w-100 m-0">
+          <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+      </figure>
+  </section>
+  
+  <section class="mobile-view  text-white d-flex align-items-center justify-content-center">
+      <figure class="h-100 w-100 m-0">
+          <img src="{% static "images/newbanners/8.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+      </figure>
+  </section>
  <section id="main">
-   <section class="container">
+   <section class="container p-4">
     {{ page.header_html|safe }}
    </section>
    
-   <header class="text-center mb-5">
-       <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid mb-4">
-   </header>
-   <div class="container">
+   <div class="container p-4 pt-0">
       {{ page.content1|safe }}
         <div class="mt-4">
             {{ page.clarity_call_html1|safe }}
             <a href="{{ page.clarity_call_link1 }}" class="btn btn-maroon m-2">{{ page.clarity_call_button1 }}</a>
-            <br>
-            {{ page.clarity_call_html2|safe }}
-            <a href="{{ page.clarity_call_link2 }}" class="btn btn-maroon m-2">{{ page.clarity_call_button2 }}</a>
         </div>
         
         <div class="mt-4">

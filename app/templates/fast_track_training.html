@@ -7,13 +7,19 @@
 <section id="main">
     <!-- Buttons -->
          <!-- Hero Section -->
-         <section class="hero-section text-white d-flex align-items-center justify-content-center">
-           <figure class="h-100 w-100 m-0">
-               <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100">
-           </figure>
-         </section>
-         
-        <div class="p-5 text-center">
+         <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
+          <figure class="h-100 w-100 m-0">
+              <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+          </figure>
+      </section>
+      
+      <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+          <figure class="h-100 w-100 m-0">
+              <img src="{% static "images/newbanners/8.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+          </figure>
+      </section>
+
+        <div class="pt-5 text-center">
           {{ page.header_htmlcontent|safe }}
         </div>
           
@@ -43,35 +49,32 @@
           {{ page.nich_navigator_htmlcontent1|safe }}
           
       </div>
-          {{ page.nich_navigator_htmlcontent2|safe }}
+      <!-- Booking Section -->
+      <div class="mt-5 d-flex flex-wrap gap-3">
+        <a href="{{ page.nich_navigator_link1 }}" target="_blank" class="btn btn-maroon btn-lg">
+          {{ page.nich_navigator_button1 }}
+        </a>
+
+      </div>
+        
+      {{ page.nich_navigator_htmlcontent2|safe }}
                   
-        <!-- Booking Section -->
-        <div class="mt-5 d-flex flex-wrap gap-3">
-          <a href="{{ page.nich_navigator_link1 }}" target="_blank" class="btn btn-maroon btn-lg">
-            {{ page.nich_navigator_button1 }}
-          </a>
-          <a href="{{ page.nich_navigator_link2 }}" target="_blank" class="btn btn-maroon btn-lg">
-            {{ page.nich_navigator_button2 }}
-          </a>
-        </div>
     </div>
     <div id="section2" class="content-section bg-white">
+      <div class="text-center">
+        {{ page.meta_google_header2|safe }}
+      </div>
+      {{ page.meta_google_htmlcontent1|safe }}
+      
+      <!-- Booking Section -->
+      <div class="mt-5 d-flex flex-wrap gap-3">
+        <a href="{{ page.meta_google_link1 }}" target="_blank" class="btn btn-maroon btn-lg">
+          {{ page.meta_google_button1 }}
+        </a>
+
+      </div>
+      {{ page.meta_google_htmlcontent2|safe }}
       <div class="container">
-        <div class="text-center my-5">
-          {{ page.meta_google_header2|safe }}
-        </div>
-        {{ page.meta_google_htmlcontent1|safe }}
-        
-        <!-- Booking Section -->
-        <div class="mt-5 d-flex flex-wrap gap-3">
-          <a href="{{ page.meta_google_link1 }}" target="_blank" class="btn btn-maroon btn-lg">
-            {{ page.meta_google_button1 }}
-          </a>
-          <a href="{{ page.meta_google_link2 }}" target="_blank" class="btn btn-maroon btn-lg">
-            {{ page.meta_google_button2 }}
-          </a>
-        </div>
-        {{ page.meta_google_htmlcontent2|safe }}
 
       </div>
     </div>
@@ -84,9 +87,7 @@
           <a href="{{ page.instagram_seo_link1 }}" class="btn btn-maroon btn-lg" target="_blank">
             {{ page.instagram_seo_button1 }}
           </a>
-          <a href="{{ page.instagram_seo_link2 }}" class="btn btn-maroon btn-lg" target="_blank">
-            {{ page.instagram_seo_button2 }}
-          </a>
+
         </div>
         {{ page.instagram_seo_htmlcontent2|safe }}
       </div>
@@ -101,9 +102,7 @@
            <a href="{{ page.canva_link1 }}" class="btn btn-maroon btn-lg" target="_blank">
                {{ page.canva_button1|safe }}
            </a>
-           <a href="{{ page.canva_link2 }}" class="btn btn-maroon btn-lg" target="_blank">
-               {{ page.canva_button2|safe }}
-           </a>
+
        </div>
       {{ page.canva_htmlcontent2|safe }}
       

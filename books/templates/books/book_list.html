@@ -16,9 +16,17 @@
 
 </style>
 <section id="main">
-    <header class="text-center">
-        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover">
-    </header>
+    <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
+    
+    <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{% static "images/newbanners/10.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
     <div class="container-fluid">
         {{ page.header_html|safe }}
     </div>

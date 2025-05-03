@@ -5,9 +5,19 @@
 
 {% include "navbar.html" with active='contact_us' %}
 <section id="main">
-    <header class="text-center mb-5">
-        <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover">
-    </header>
+
+    <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{{ page.header_image.url }}" alt="Business Strategy" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
+    
+    <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{% static "images/newbanners/9.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+        </figure>
+    </section>
+
     <div class="container py-5">
         {{ page.htmlcontent|safe }}
     
@@ -18,7 +28,7 @@
                         <!-- Book Free 15-Minute Call Section -->
             <section class="text-center mb-5">
                 {{ page.clarity_call|safe }}
-                <a href="{{ page.clarity_call_link }}" class="btn btn-maroon btn-lg">
+                <a href="{{ page.clarity_call_link }}" class="btn btn-maroon">
                     {{ page.clarity_call_button|safe }}
                 </a>
             </section>
