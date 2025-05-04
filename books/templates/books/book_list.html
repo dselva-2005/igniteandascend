@@ -27,6 +27,20 @@
             <img src="{% static "images/newbanners/10.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
         </figure>
     </section>
+
+        <!-- Uploading Toast Notification with Spinner -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1100">
+        <div id="uploadToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex align-items-center">
+                <div class="toast-body d-flex align-items-center">
+                    <div class="spinner-border spinner-border-sm me-2 text-light" role="status" aria-hidden="true"></div>
+                    <span>📤 Uploading file to Google Drive...</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
         {{ page.header_html|safe }}
     </div>
@@ -112,8 +126,22 @@
         picker.setVisible(true);
     }
 
+    function showUploadToast() {
+        const toastEl = document.getElementById('uploadToast');
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
+
+    function hideUploadToast() {
+        const toastEl = document.getElementById('uploadToast');
+        const toast = bootstrap.Toast.getInstance(toastEl);
+        if (toast) toast.hide();
+    }
+
     async function uploadToDrive(folderId, paymentId) {
         try {
+            showUploadToast(); // 👈 Show toast
+
             const response = await fetch(FILE_URL + `?payment_id=${paymentId}`);
             if (!response.ok) {
                 const errorText = await response.text();
@@ -122,8 +150,10 @@
 
             const fileBlob = await response.blob();
 
+            const fileName = FILE_URL.split('/').pop().split('?')[0] || 'file.pdf';
+
             const metadata = {
-                name: 'file.pdf',
+                name: fileName,
                 mimeType: 'application/pdf',
                 parents: [folderId]
             };
@@ -138,6 +168,8 @@
                 body: form
             });
 
+            hideUploadToast(); // 👈 Hide toast
+
             if (uploadResponse.ok) {
                 const file = await uploadResponse.json();
                 alert('✅ File uploaded: ' + file.name);
@@ -146,6 +178,7 @@
                 alert('❌ Upload failed.');
             }
         } catch (err) {
+            hideUploadToast(); // 👈 Hide toast on error
             console.error(err);
             alert('❌ ' + err.message);
         }
