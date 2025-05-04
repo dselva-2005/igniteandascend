@@ -27,18 +27,19 @@
     </section>
     
     {{ page.htmlcontent|safe }}
-    
-    <!-- CTA Section -->
-    <section class="">
-      <div class="container text-center">
+  
+      <!-- Free 15-Minute Clarity Call Section -->
+      <section class="mb-1 text-center">
         {{ page.clarity_call_html1|safe }}
-        <div class="my-4 text-center">
-          <a href="{{ page.clarity_call_link1 }}" class="btn btn-maroon  me-3">
-            {{ page.clarity_call_button1 }}
-          </a>
-        </div>
-      </div>
-    </section>
+        <div class="mt-2 mb-3 text-center">
+            <a href="{{ page.clarity_call_link1|safe }}" class="btn btn-maroon mb-2">{{ page.clarity_call_button1|safe }}</a>
+          </div>
+          <div class=" text-center">
+            {{ page.clarity_call_html2|safe }}
+            <a href="{{ page.clarity_call_link2|safe }}" class="btn btn-maroon mb-2">{{ page.clarity_call_button2|safe }}</a>
+          </div>
+      </section>
+      
     {{ page.content2|safe }}
     
   </div>

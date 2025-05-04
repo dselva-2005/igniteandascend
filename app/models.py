@@ -147,6 +147,10 @@ class SkillToTrainPage(models.Model):
     clarity_call_html1 = HTMLField()
     clarity_call_button1 = models.TextField()
 
+    clarity_call_link2 = models.TextField(null=True)
+    clarity_call_html2 = HTMLField(null=True)
+    clarity_call_button2 = models.TextField(null=True)
+
     htmlcontent2 = HTMLField()
     
     faq_html = HTMLField()
@@ -167,6 +171,10 @@ class UltimateTrainerLaunchPackPage(models.Model):
     clarity_call_link1 = models.TextField()
     clarity_call_html1 = HTMLField()
     clarity_call_button1 = models.TextField()
+
+    clarity_call_link2 = models.TextField(null=True)
+    clarity_call_html2 = HTMLField(null=True)
+    clarity_call_button2 = models.TextField(null=True)
 
     content2 = HTMLField()
 
@@ -203,6 +211,10 @@ class AdvancedLeadGenerationPackage(models.Model):
     clarity_call_link1 = models.TextField()
     clarity_call_html1 = HTMLField()
     clarity_call_button1 = models.TextField()
+
+    clarity_call_link2 = models.TextField(null=True)
+    clarity_call_html2 = HTMLField(null=True)
+    clarity_call_button2 = models.TextField(null=True)
 
     class Meta:
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'

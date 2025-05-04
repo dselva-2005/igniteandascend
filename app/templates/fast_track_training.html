@@ -7,7 +7,7 @@
 <section id="main">
     <!-- Buttons -->
          <!-- Hero Section -->
-         <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
+      <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
           <figure class="h-100 w-100 m-0">
               <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
           </figure>
@@ -55,6 +55,10 @@
           {{ page.nich_navigator_button1 }}
         </a>
 
+        <a href="{{ page.nich_navigator_link2 }}" target="_blank" class="btn btn-maroon ">
+          {{ page.nich_navigator_button2 }}
+        </a>
+
       </div>
         
       {{ page.nich_navigator_htmlcontent2|safe }}
@@ -70,6 +74,10 @@
       <div class="mt-5 d-flex flex-wrap gap-3">
         <a href="{{ page.meta_google_link1 }}" target="_blank" class="btn btn-maroon ">
           {{ page.meta_google_button1 }}
+        </a>
+
+        <a href="{{ page.meta_google_link2 }}" target="_blank" class="btn btn-maroon ">
+          {{ page.meta_google_button2 }}
         </a>
 
       </div>
@@ -88,6 +96,10 @@
             {{ page.instagram_seo_button1 }}
           </a>
 
+          <a href="{{ page.instagram_seo_link2 }}" class="btn btn-maroon " target="_blank">
+            {{ page.instagram_seo_button2 }}
+          </a>
+
         </div>
         {{ page.instagram_seo_htmlcontent2|safe }}
       </div>
@@ -101,6 +113,10 @@
        <div class="mt-4 d-flex flex-wrap gap-3">
            <a href="{{ page.canva_link1 }}" class="btn btn-maroon " target="_blank">
                {{ page.canva_button1|safe }}
+           </a>
+
+           <a href="{{ page.canva_link2 }}" class="btn btn-maroon " target="_blank">
+               {{ page.canva_button2|safe }}
            </a>
 
        </div>
