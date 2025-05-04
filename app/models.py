@@ -1,6 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField  # if using TinyMCE's HTMLField
-
+from django.utils import timezone
 
 
 class HomePage(models.Model):
@@ -45,13 +45,13 @@ class HomePage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"HomePage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"HomePage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class AboutPage(models.Model):
 
     header_content = HTMLField()
-
+    
     image_of_person1 = models.ImageField()
     html_content_for_person1 = HTMLField()
 
@@ -68,9 +68,11 @@ class AboutPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"AboutPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"AboutPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
+    
 class ContactPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_image = models.ImageField()  # add upload_to for better file management
     htmlcontent = HTMLField()
     contact_us_html = HTMLField()
@@ -86,10 +88,11 @@ class ContactPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"ContactPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"ContactPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class BeginnerToProPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_image = models.ImageField()  # add upload_to for better file management
     beginner_html_title = HTMLField()
     beginner_html = HTMLField()
@@ -111,10 +114,11 @@ class BeginnerToProPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"BeginnerToProPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"BeginnerToProPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class LiveSessionPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_html = HTMLField()
     header_image = models.ImageField()  # add upload_to for better file management
     created = models.DateTimeField(auto_now_add=True)  # corrected this
@@ -133,10 +137,11 @@ class LiveSessionPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"LiveSessionPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"LiveSessionPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class SkillToTrainPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_html = HTMLField()
     header_image = models.ImageField()  # add upload_to for better file management
     htmlcontent = HTMLField()
@@ -160,10 +165,11 @@ class SkillToTrainPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"SkillToTrainPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"SkillToTrainPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class UltimateTrainerLaunchPackPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_image = models.ImageField()  # add upload_to for better file management
     header_html = HTMLField()
     htmlcontent = HTMLField()
@@ -185,10 +191,11 @@ class UltimateTrainerLaunchPackPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"UltimateTrainerLaunchPackPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"UltimateTrainerLaunchPackPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class WorkshopsPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_image = models.ImageField()  # add upload_to for better file management
     htmlcontent = HTMLField()
     created = models.DateTimeField(auto_now_add=True)  # corrected this
@@ -199,9 +206,11 @@ class WorkshopsPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"WorkshopsPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"WorkshopsPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
+    
 class AdvancedLeadGenerationPackage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_image = models.ImageField()  # add upload_to for better file management
     header_html = HTMLField()  # add upload_to for better file management
     htmlcontent = HTMLField()
@@ -220,10 +229,11 @@ class AdvancedLeadGenerationPackage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"WorkshopsPage updated on {self.updated}"
-
+        local_updated = timezone.localtime(self.updated)
+        return f"WorkshopsPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class FastTrackTrainingPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_image = models.ImageField()  # add upload_to for better file management
     header_htmlcontent = HTMLField()
 
@@ -274,9 +284,9 @@ class FastTrackTrainingPage(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
-        return f"FastTrackTrainingPage updated on {self.updated}"
-    
-    from django.db import models
+        local_updated = timezone.localtime(self.updated)
+        return f"FastTrackTrainingPage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
+
 
 class Pagelinks(models.Model):
     # Each product's name and URL as separate fields
@@ -386,5 +396,6 @@ class Pagelinks(models.Model):
         ordering = ['-updated']  # corrected 'orderby' to 'ordering'
 
     def __str__(self):
+    
         return "Product Links"
 

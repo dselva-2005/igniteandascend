@@ -21,11 +21,18 @@ class Book(models.Model):
     
 
 class BookPage(models.Model):
+    header_image_mobile = models.ImageField(null=True)  # add upload_to for better file management
     header_html = HTMLField()
     header_image = models.ImageField()
     created = models.DateTimeField(auto_now_add=True)  # corrected this
     updated = models.DateTimeField(auto_now=True)      # corrected this
 
+    class Meta:
+        ordering = ['-updated']  # corrected 'orderby' to 'ordering'
+
+    def __str__(self):
+        local_updated = timezone.localtime(self.updated)
+        return f"Bookpage updated on {local_updated.strftime('%d-%m-%Y %I:%M %p')}"
 
 class Purchase(models.Model):
     user = models.ForeignKey(User, related_name='purchases', on_delete=models.CASCADE)

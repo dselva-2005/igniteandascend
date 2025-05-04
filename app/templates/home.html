@@ -5,7 +5,21 @@
 
 {% block content %}
 {% include "navbar.html" with active='home' %}
-
+<style>
+    .hero-section figure {
+        position: relative;
+    }
+    
+    .certificate-carousel-overlay {
+        position: absolute;
+        bottom: 0; /* Change to 'top: 0' if you want it at the top */
+        left: 0;
+        width: 100%;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0); /* Optional: dark background for contrast */
+    }
+    </style>
+    
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 <!-- Main Content Section -->
@@ -15,54 +29,78 @@
     <section class="large-view hero-section text-white d-flex align-items-center justify-content-center">
         <figure class="h-100 w-100 m-0">
             <img src="{{ page.header_image.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
-        </figure>
-    </section>
-    
-    <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
-        <figure class="h-100 w-100 m-0">
-            <img src="{% static "images/newbanners/1.jpg" %}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
-        </figure>
-    </section>
 
-    <!-- Certificate Carousel -->
-    <div class="container-fluid p-0">
-        <div id="certificateCarousel" class="carousel slide strip" data-bs-ride="carousel" data-bs-interval="2000">
-            <div class="carousel-inner">
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="row g-0 text-center flex-nowrap">   
-                        <div class="col-3"><img src="{{ page.slide_image1.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image2.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image3.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image4.url }}" class="img-fluid rounded p-2" alt=""></div>
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="row g-0 text-center flex-nowrap">
-                        <div class="col-3"><img src="{{ page.slide_image7.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image8.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image9.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image5.url }}" class="img-fluid rounded p-2" alt=""></div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="row g-0 text-center flex-nowrap">
-                        <div class="col-3"><img src="{{ page.slide_image10.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image11.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image12.url }}" class="img-fluid rounded p-2" alt=""></div>
-                        <div class="col-3"><img src="{{ page.slide_image6.url }}" class="img-fluid rounded p-2" alt=""></div>
+            <!-- Certificate Carousel Overlay -->
+            <div class="certificate-carousel-overlay container-fluid p-0">
+                <div id="certificateCarouselLarge" class="carousel slide strip" data-bs-ride="carousel" data-bs-interval="2000" data-bs-pause="false">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="row g-0 text-center flex-nowrap">
+                                <div class="col-2"><img src="{{ page.slide_image1.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image2.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image3.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image4.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image7.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image8.url }}" class="img-fluid rounded p-2" alt=""></div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row g-0 text-center flex-nowrap">
+                                <div class="col-2"><img src="{{ page.slide_image9.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image5.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image10.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image11.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image12.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image6.url }}" class="img-fluid rounded p-2" alt=""></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </figure>
+    </section>
+
+    <!-- Mobile View Hero Section -->
+    <section class="mobile-view hero-section text-white d-flex align-items-center justify-content-center">
+        <figure class="h-100 w-100 m-0">
+            <img src="{{ page.header_image_mobile.url }}" alt="Main banner" class="img-fluid h-100 w-100 object-fit-cover">
+ 
+            <!-- Certificate Carousel Overlay -->
+            <div class="certificate-carousel-overlay container-fluid p-0">
+                <div id="certificateCarouselLarge" class="carousel slide strip" data-bs-ride="carousel" data-bs-interval="2000" data-bs-pause="false">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="row g-0 text-center flex-nowrap">
+                                <div class="col-2"><img src="{{ page.slide_image1.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image2.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image3.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image4.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image7.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image8.url }}" class="img-fluid rounded p-2" alt=""></div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row g-0 text-center flex-nowrap">
+                                <div class="col-2"><img src="{{ page.slide_image9.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image5.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image10.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image11.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image12.url }}" class="img-fluid rounded p-2" alt=""></div>
+                                <div class="col-2"><img src="{{ page.slide_image6.url }}" class="img-fluid rounded p-2" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </figure>
+    </section>
 
     <!-- About Section -->
-    <div class="container">
+    <div class="container mt-5">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-3 mb-lg-0">
                 <img src="{{ page.about_image.url }}" class="img-fluid w-100 h-100 object-fit-cover" alt="About Image">

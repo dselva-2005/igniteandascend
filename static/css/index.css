@@ -193,6 +193,9 @@ h1, h2, h3, h4, h5 {
     .strip .carousel-item img{
         height: 40vh !important;
     }
+    .certificate-carousel-overlay {
+        bottom: -4.9rem !important;
+    }
 }
 
 .text-navy {

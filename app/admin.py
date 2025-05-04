@@ -1,18 +1,38 @@
 from django.contrib import admin
 from . import models
 
-admin.site.register(models.HomePage)
-admin.site.register(models.ContactPage)
-admin.site.register(models.UltimateTrainerLaunchPackPage)
-admin.site.register(models.FastTrackTrainingPage)
-admin.site.register(models.WorkshopsPage)
-admin.site.register(models.LiveSessionPage)
-admin.site.register(models.BeginnerToProPage)
-admin.site.register(models.AboutPage)
-admin.site.register(models.SkillToTrainPage)
-admin.site.register(models.AdvancedLeadGenerationPackage)
+from django.contrib import admin
+from django.utils.html import format_html
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.db import models as dj_models
+
+def clone_model(modeladmin, request, queryset):
+    for obj in queryset:
+        # Make a copy
+        obj.pk = None
+        obj.save()
+    model_name = queryset.model._meta.verbose_name_plural.title()
+    messages.success(request, f"Selected {model_name} successfully cloned.")
+clone_model.short_description = "Clone selected instances"
+
+class CloneableAdmin(admin.ModelAdmin):
+    actions = [clone_model]
+
+admin.site.register(models.HomePage, CloneableAdmin)
+admin.site.register(models.ContactPage, CloneableAdmin)
+admin.site.register(models.UltimateTrainerLaunchPackPage, CloneableAdmin)
+admin.site.register(models.FastTrackTrainingPage, CloneableAdmin)
+admin.site.register(models.WorkshopsPage, CloneableAdmin)
+admin.site.register(models.LiveSessionPage, CloneableAdmin)
+admin.site.register(models.BeginnerToProPage, CloneableAdmin)
+admin.site.register(models.AboutPage, CloneableAdmin)
+admin.site.register(models.SkillToTrainPage, CloneableAdmin)
+admin.site.register(models.AdvancedLeadGenerationPackage, CloneableAdmin)
+
 
 class PagelinksAdmin(admin.ModelAdmin):
+    actions = [clone_model]
     # Define which fields you want to display
     list_display = ('title1','title2','title3','title4',
         'product1name', 'product1url',
