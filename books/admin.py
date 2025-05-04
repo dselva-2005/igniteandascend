@@ -6,4 +6,4 @@ from . import models
 class BookAdmin(admin.ModelAdmin):
     pass
 
-# admin.site.register(models.BookPage)
+admin.site.register(models.BookPage)
