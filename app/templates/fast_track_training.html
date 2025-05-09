@@ -23,18 +23,18 @@
           {{ page.header_htmlcontent|safe }}
         </div>
           
-    <div class="container">
+    <div class="container" id="nav-btn">
       <div class="d-flex justify-content-center gap-1 mb-4">
-        <button class="btn btn-lg btn-outline-maroon btn-active" onclick="showSection('section1')">
+        <button class="btn btn-lg btn-outline-maroon btn-active" id="btn-section1" onclick="showSection('section1')">
           {{ page.nich_navigator_header1|safe }}
         </button>
-        <button class="btn btn-lg btn-outline-maroon" onclick="showSection('section2')">
+        <button class="btn btn-lg btn-outline-maroon" id="btn-section2" onclick="showSection('section2')">
           {{ page.meta_google_header1|safe }}
         </button>
-        <button class="btn btn-lg btn-outline-maroon" onclick="showSection('section3')">
+        <button class="btn btn-lg btn-outline-maroon" id="btn-section3" onclick="showSection('section3')">
           {{ page.instagram_seo_header1|safe }}
         </button>
-        <button class="btn btn-lg btn-outline-maroon" onclick="showSection('section4')">
+        <button class="btn btn-lg btn-outline-maroon" id="btn-section4" onclick="showSection('section4')">
           {{ page.canva_header1|safe }}
         </button>
       </div>
@@ -124,11 +124,21 @@
       
      </div>
     </div>
-   </section>
- 
+  </section>
+  
 </section>
 <script>
-  function showSection(id) {
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (id) {
+      showSection(id,false);
+      const targetSection = document.getElementById("nav-btn");
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById(`btn-${id}`).classList.add('btn-active');
+    }
+  });
+  function showSection(id,evente=true) {
     // Hide all sections
     const sections = document.querySelectorAll('.content-section');
     sections.forEach(sec => sec.classList.remove('active'));
@@ -141,7 +151,9 @@
     buttons.forEach(btn => btn.classList.remove('btn-active'));
 
     // Add 'active' to the clicked button
-    event.currentTarget.classList.add('btn-active');
+    if(evente){
+      event.currentTarget.classList.add('btn-active');
+    }
   }
 </script>
 
