@@ -7,31 +7,7 @@ from django.http import JsonResponse
 import json
 from django.conf import settings
 from .forms import ContactForm
-from django.core.mail import send_mail
-
-
-def send_custom_email(subject, message, recipient_list, from_email=None, html_message=None):
-    """
-    Sends an email using Django's send_mail function.
-    
-    Args:
-        subject (str): Subject of the email.
-        message (str): Plain text version of the email.
-        recipient_list (list): List of recipient email addresses.
-        from_email (str, optional): Defaults to settings.DEFAULT_FROM_EMAIL.
-        html_message (str, optional): HTML version of the email body.
-
-    Returns:
-        int: Number of successfully delivered messages (0 or 1).
-    """
-    return send_mail(
-        subject,
-        message,
-        from_email or settings.DEFAULT_FROM_EMAIL,
-        recipient_list,
-        fail_silently=False,
-        html_message=html_message,
-    )
+from .tasks import send_custom_email
 
 
 client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
@@ -86,9 +62,11 @@ def contact_us(request):
     form = ContactForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         # Handle the cleaned data, e.g., send an email
-        # name = form.cleaned_data['name']
-        # ...
-        send_custom_email('test','test',['dselvajagan@gmail.com'],from_email=settings.EMAIL_HOST_USER)
+        name = form.cleaned_data['name']
+        message = form.cleaned_data['message']
+        email = form.cleaned_data['email']
+        phone = form.cleaned_data['phone']
+        send_custom_email.delay(f'Received a message from {name}', f"mobile number: {phone} email: {email}" + message,[settings.EMAIL_HOST_USER],from_email=settings.EMAIL_HOST_USER)
         form = ContactForm()  # Reset the form after successful submission
         return render(request,'contact_us.html',{"title":title,"page":page,"form": form,"success": True})
     
