@@ -13,6 +13,9 @@ from .tasks import send_custom_email
 client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
 # Create your views here.
 
+def google_verification(request):
+    return render(request,'googlec928f43d0c4c58be.html')
+
 @csrf_exempt
 def verify_payment(request):
     if request.method == "POST":

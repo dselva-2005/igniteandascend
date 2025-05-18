@@ -14,5 +14,6 @@ urlpatterns = [
     path("skill-to-trainer/",views.skill_to_trainer,name='skill_to_trainer'),
     path("ultimate-trainer-launch-pack/",views.ultimage_trainer_launch_pack,name='ultimage_trainer_launch_pack'),
     path("advanced-lead-generation-package/",views.advanced_lead_generation_package,name='advanced_lead_generation_package'),
+    path("googlec928f43d0c4c58be.html",views.google_verification,name='google_verification'),
     path("",views.Home.as_view(),name='home_page'),
 ]
