@@ -66,7 +66,8 @@ def contact_us(request):
         message = form.cleaned_data['message']
         email = form.cleaned_data['email']
         phone = form.cleaned_data['phone']
-        send_custom_email.delay(f'Received a message from {name}', f"mobile number: {phone} email: {email}" + message,[settings.EMAIL_HOST_USER],from_email=settings.EMAIL_HOST_USER)
+
+        send_custom_email.delay(f'Received a message from {name}', f"user info : mobile number: {phone} email: {email} \n message : " + message,recipient_list=[settings.EMAIL_HOST_USER],from_email=settings.EMAIL_HOST_USER)
         form = ContactForm()  # Reset the form after successful submission
         return render(request,'contact_us.html',{"title":title,"page":page,"form": form,"success": True})
     
