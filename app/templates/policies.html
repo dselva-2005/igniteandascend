@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+    {% include "navbar.html" with active='' %}
+    <section id="main">
+            <!-- Left Image Column -->
+          <div class="container mb-5">
+              <!-- Training Programs Section -->
+              <section>
+                    {{ page.html_content|safe }}
+              </section>
+          </div>
+    </section>
+{% endblock content %}

@@ -6,7 +6,7 @@
         <div class="row g-4">
             <!-- Logo & Social -->
             <div class="col-md-3">
-                <img src="{% static 'images/newcompressed/footerlogo.png' %}" class="img-fluid w-75 mb-3" alt="Logo">
+                <img src="{{ footer.logo.url }}" class="img-fluid w-75 mb-3" alt="Logo">
                 <div class="d-flex gap-3">
                     <a href="https://www.facebook.com/profile.php?id=61574034680048" class="text-light social-link" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
                     <a href="https://www.instagram.com/igniteandascend/?hl=en" class="text-light social-link" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
@@ -19,12 +19,12 @@
             <div class="col-md-3">
                 <h6 class="fw-semibold mb-3 text-maroon">Services</h6>
                 <ul class="list-unstyled small">
-                    <li><a href="{% url 'app:skill_to_trainer' %}" class="text-decoration-none text-light footer-link">Skill to Trainer Start Pack</a></li>
-                    <li><a href="{% url 'app:ultimage_trainer_launch_pack' %}" class="text-decoration-none text-light footer-link">Ultimate Trainer Launch Package</a></li>
-                    <li><a href="{% url 'app:advanced_lead_generation_package' %}" class="text-decoration-none text-light footer-link">Advanced Lead Generation Package</a></li>
-                    <li><a href="{% url 'app:fast_track_training' %}" class="text-decoration-none text-light footer-link">1-1 Fast Track Trainer Course</a></li>
-                    <li><a href="{% url 'app:live_session' %}" class="text-decoration-none text-light footer-link">Business Power Hour (Bangalore)</a></li>
-                    <li><a href="{% url 'app:beginner_to_pro' %}" class="text-decoration-none text-light footer-link">Newbie or Pro? We've Got You</a></li>
+                    <li><a href="{{ footer.service1_url }}" class="text-decoration-none text-light footer-link">{{ footer.service1 }}</a></li>
+                    <li><a href="{{ footer.service2_url }}" class="text-decoration-none text-light footer-link">{{ footer.service2 }}</a></li>
+                    <li><a href="{{ footer.service3_url }}" class="text-decoration-none text-light footer-link">{{ footer.service3 }}</a></li>
+                    <li><a href="{{ footer.service4_url }}" class="text-decoration-none text-light footer-link">{{ footer.service4 }}</a></li>
+                    <li><a href="{{ footer.service5_url }}" class="text-decoration-none text-light footer-link">{{ footer.service5 }}</a></li>
+                    <li><a href="{{ footer.service6_url }}" class="text-decoration-none text-light footer-link">{{ footer.service6 }}</a></li>
                 </ul>
             </div>
 
@@ -32,11 +32,11 @@
             <div class="col-md-3">
                 <h6 class="fw-semibold mb-3 text-maroon">Quick Links</h6>
                 <ul class="list-unstyled small">
-                    <li><a href="{% url 'app:about_us' %}" class="text-decoration-none text-light footer-link">About Us</a></li>
-                    <li><a href="{% url 'books:book-list' %}" class="text-decoration-none text-light footer-link">Ebooks</a></li>
-                    <li><a href="#" class="text-decoration-none text-light footer-link">Blogs</a></li>
-                    <li><a href="{% url 'app:workshops' %}" class="text-decoration-none text-light footer-link">Workshops</a></li>
-                    <li><a href="#" class="text-decoration-none text-light footer-link">Privacy Policy</a></li>
+                    <li><a href="{{ footer.quick_link1_url }}" class="text-decoration-none text-light footer-link">{{ footer.quick_link1 }}</a></li>
+                    <li><a href="{{ footer.quick_link2_url }}" class="text-decoration-none text-light footer-link">{{ footer.quick_link2 }}</a></li>
+                    <li><a href="{{ footer.quick_link3_url }}" class="text-decoration-none text-light footer-link">{{ footer.quick_link3 }}</a></li>
+                    <li><a href="{{ footer.quick_link4_url }}" class="text-decoration-none text-light footer-link">{{ footer.quick_link4 }}</a></li>
+                    <li><a href="#" class="text-decoration-none text-light footer-link">{{ footer.quick_link5 }}</a></li>
                 </ul>
             </div>
 
@@ -56,7 +56,7 @@
             <div class="col-12">
                 <h6 class="fw-semibold text-maroon mb-3">Our Services</h6>
                 <p class="small text-light">
-                    Build your startup | How to start your online business | Coaching | Training | Webinar | SEO course | Instagram course | Meta ads course | Google ads | Website design and development | Canva course | Digital marketing course | Advertise on Google | Lead generation | Meta ads | Small business | Entrepreneur | Business plans | Social media content creator | Social media strategy | Online business from home | Communication coach | Startup ideas | Certified life coach | Website development services | Business consultant | Small business consultant | Social media specialist | Training and development | YouTube | Instagram marketing service | Consulting company | Social media posting | Facebook marketing strategy | Business services | Start-up business ideas | Home business | Building website for business | Social media content | Business for women entrepreneurs | Start-up ideas | LinkedIn page optimization | Instagram page optimization | Social media optimization | Digital and social media marketing | Creating an e-commerce website | Shopify | WordPress
+                    {{ footer.our_services }}
                 </p>
             </div>
         </div>

@@ -111,3 +111,22 @@ def advanced_lead_generation_package(request):
     page = models.AdvancedLeadGenerationPackage.objects.first()
     return render(request,'advanced_lead_generation_package.html',{"title":title,"page":page})
 
+def privacy_policy(request):
+    title = 'Privacy Policy'
+    page = models.PrivacyPolicy.objects.first()
+    return render(request,'policies.html',{"title":title,"page":page})
+
+def terms_and_conditions(request):
+    title = 'Terms And Conditions'
+    page = models.TermsAndConditions.objects.first()
+    return render(request,'policies.html',{"title":title,"page":page})
+
+def return_and_return_policy(request):
+    title = 'Return And Return Policy'
+    page = models.ReturnAndReturnPolicy.objects.first()
+    return render(request,'policies.html',{"title":title,"page":page})
+
+def disclaimer(request):
+    title = 'Disclaimer'
+    page = models.Disclaimer.objects.first()
+    return render(request,'policies.html',{"title":title,"page":page})

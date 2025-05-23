@@ -29,6 +29,11 @@ admin.site.register(models.BeginnerToProPage, CloneableAdmin)
 admin.site.register(models.AboutPage, CloneableAdmin)
 admin.site.register(models.SkillToTrainPage, CloneableAdmin)
 admin.site.register(models.AdvancedLeadGenerationPackage, CloneableAdmin)
+admin.site.register(models.TermsAndConditions, CloneableAdmin)
+admin.site.register(models.Disclaimer, CloneableAdmin)
+admin.site.register(models.PrivacyPolicy, CloneableAdmin)
+admin.site.register(models.ReturnAndReturnPolicy, CloneableAdmin)
+admin.site.register(models.Footer, CloneableAdmin)
 
 
 class PagelinksAdmin(admin.ModelAdmin):

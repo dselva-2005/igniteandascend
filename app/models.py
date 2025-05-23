@@ -399,3 +399,43 @@ class Pagelinks(models.Model):
     
         return "Product Links"
 
+class Footer(models.Model):
+    logo = models.ImageField()
+
+    service1 = models.CharField(max_length=200)
+    service2 = models.CharField(max_length=200)
+    service3 = models.CharField(max_length=200)
+    service4 = models.CharField(max_length=200)
+    service5 = models.CharField(max_length=200)
+    service6 = models.CharField(max_length=200)
+
+    service1_url = models.URLField()
+    service2_url = models.URLField()
+    service3_url = models.URLField()
+    service4_url = models.URLField()
+    service5_url = models.URLField()
+    service6_url = models.URLField()
+
+    quick_link1 = models.CharField(max_length=200)
+    quick_link2 = models.CharField(max_length=200)
+    quick_link3 = models.CharField(max_length=200)
+    quick_link4 = models.CharField(max_length=200)
+
+    quick_link1_url = models.URLField()
+    quick_link2_url = models.URLField()
+    quick_link3_url = models.URLField()
+    quick_link4_url = models.URLField()
+    
+    our_services = models.TextField()
+
+class PrivacyPolicy(models.Model):
+    html_content = HTMLField()
+
+class Disclaimer(models.Model):
+    html_content = HTMLField()
+
+class ReturnAndReturnPolicy(models.Model):
+    html_content = HTMLField()
+
+class TermsAndConditions(models.Model):
+    html_content = HTMLField()
