@@ -26,13 +26,13 @@ load_dotenv()  # this loads the .env file into os.environ
 SECRET_KEY = os.getenv("DJANGO_SECRETS")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
-# DEBUG = False
+DEBUG = False
 
-# ALLOWED_HOSTS = ['igniteandascend.com','www.igniteandascend.com']
+ALLOWED_HOSTS = ['igniteandascend.com','www.igniteandascend.com']
 
 
 # Application definition
@@ -216,3 +216,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # settings.py
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600  # 100 MB in bytes
 FILE_UPLOAD_MAX_MEMORY_SIZE = 104857600  # Optional, for in-memory uploads
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
